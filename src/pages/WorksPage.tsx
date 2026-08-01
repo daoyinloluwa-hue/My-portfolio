@@ -20,10 +20,10 @@ export default function WorksPage({ onNavigate }: { onNavigate: (p: Page) => voi
     <div className="min-h-screen flex flex-col">
       <div className="flex-1">
         {/* ── Header ── */}
-        <section className="max-w-[1280px] mx-auto px-6 sm:px-[80px] pt-[140px] pb-[60px]">
+        <section className="max-w-[1280px] mx-auto px-6 sm:px-[80px] pt-[120px] sm:pt-[140px] pb-[50px] sm:pb-[60px]">
           <div className="flex flex-col gap-5">
-            <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[22px]">Selected Works</p>
-            <h1 className="font-['Montserrat',sans-serif] font-semibold text-[38px] sm:text-[52px] text-black leading-[1.1] max-w-[680px]">
+            <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[20px] sm:text-[22px]">Selected Works</p>
+            <h1 className="font-['Montserrat',sans-serif] font-semibold text-[32px] sm:text-[44px] lg:text-[52px] text-black leading-[1.1] max-w-[680px]">
               A selection of interfaces I've designed across mobile and web.
             </h1>
           </div>

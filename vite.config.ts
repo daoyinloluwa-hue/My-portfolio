@@ -11,7 +11,10 @@ export default defineConfig(({ mode }) => {
   const emitSourcemaps = mode === 'development'
 
   return {
-    base: process.env.FIGMA_PUBLIC_URL ? `${process.env.FIGMA_PUBLIC_URL}/` : '/',
+    // Use relative asset paths so images/CSS/JS resolve correctly on any
+    // host or subpath (e.g. Vercel preview deployments). The app is a single
+    // page (state-based navigation), so relative paths are always safe.
+    base: './',
     build: {
       sourcemap: emitSourcemaps ? 'inline' : false,
       minify: !emitSourcemaps,

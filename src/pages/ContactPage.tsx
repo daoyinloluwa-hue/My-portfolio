@@ -44,18 +44,18 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
     <div className="flex flex-col">
 
       {/* ── Hero ── */}
-      <section className="max-w-[1280px] mx-auto px-[80px] pt-[140px] pb-[80px] w-full">
-        <div className="flex flex-col gap-5 mb-[72px]">
-          <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[22px]">Get in touch</p>
-          <h1 className="font-['Montserrat',sans-serif] font-semibold text-[60px] text-black leading-[1.1] max-w-[760px]">
+      <section className="max-w-[1280px] mx-auto px-6 sm:px-[80px] pt-[120px] sm:pt-[140px] pb-[60px] sm:pb-[80px] w-full">
+        <div className="flex flex-col gap-5 mb-[50px] sm:mb-[72px]">
+          <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[20px] sm:text-[22px]">Get in touch</p>
+          <h1 className="font-['Montserrat',sans-serif] font-semibold text-[36px] sm:text-[48px] lg:text-[60px] text-black leading-[1.1] max-w-[760px]">
             Every great experience begins with a conversation.
           </h1>
-          <p className="font-['Montserrat',sans-serif] font-medium text-[#555] text-[17px] max-w-[520px] leading-relaxed">
+          <p className="font-['Montserrat',sans-serif] font-medium text-[#555] text-[15px] sm:text-[17px] max-w-[520px] leading-relaxed">
             Available for freelance work, contracts, and full-time opportunities.
           </p>
         </div>
 
-        <div className="grid grid-cols-[1fr_400px] gap-[80px] items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 lg:gap-[80px] items-start">
           {/* ── Form ── */}
           {sent ? (
             <div className="flex flex-col gap-6 items-center justify-center py-32 text-center">
@@ -82,7 +82,7 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <FormField
                   label="Your Name"
                   placeholder="Amara Johnson"

@@ -147,8 +147,8 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
     <div className="flex flex-col">
 
       {/* ── Hero ── */}
-      <section className="max-w-[1280px] mx-auto px-[80px] pt-[140px] pb-[80px] w-full">
-        <div className="grid grid-cols-[1fr_440px] gap-20 items-center">
+      <section className="max-w-[1280px] mx-auto px-6 sm:px-[80px] pt-[120px] sm:pt-[140px] pb-[60px] sm:pb-[80px] w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-12 lg:gap-20 items-center">
           {/* Text */}
           <div className="flex flex-col gap-8">
             <div className="inline-flex items-center gap-2.5 border border-[#5f51a4] rounded-full px-4 py-2.5 w-fit">
@@ -160,7 +160,7 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
               </span>
             </div>
 
-            <h1 className="font-['Montserrat',sans-serif] text-[52px] leading-[1.12] text-black">
+            <h1 className="font-['Montserrat',sans-serif] text-[34px] sm:text-[44px] lg:text-[52px] leading-[1.12] text-black">
               <span className="font-medium">I'm </span>
               <span className="font-['Playfair_Display',serif] font-bold italic">Oyinloluwa,</span>
               <br />
@@ -171,7 +171,7 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
               <span className="font-medium">digital experiences.</span>
             </h1>
 
-            <p className="font-['Montserrat',sans-serif] font-medium text-[#555] text-[17px] leading-relaxed max-w-[520px]">
+            <p className="font-['Montserrat',sans-serif] font-medium text-[#555] text-[15px] sm:text-[17px] leading-relaxed max-w-[520px]">
               I design thoughtful digital products that combine research, strategy, and beautiful interfaces to solve real business and user problems. With over 1 year of experience, I've partnered with startups and brands to bring meaningful ideas to life.
             </p>
 
@@ -190,7 +190,7 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
           </div>
 
           {/* Photo card */}
-          <div className="relative h-[540px] rounded-[32px] overflow-hidden group">
+          <div className="relative h-[380px] sm:h-[480px] lg:h-[540px] rounded-[32px] overflow-hidden group">
             <img
               alt="Oyinloluwa"
               src={imgFrame427318995}
@@ -213,13 +213,13 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
       </section>
 
       {/* ── Skills ── */}
-      <section className="bg-[#f0eeff] py-[80px] px-[80px]">
+      <section className="bg-[#f0eeff] py-[60px] sm:py-[80px] px-6 sm:px-[80px]">
         <div className="max-w-[1280px] mx-auto">
           <div className="flex flex-col gap-3 mb-12">
-            <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[22px]">What I do</p>
-            <h2 className="font-['Montserrat',sans-serif] font-semibold text-[40px] text-black">Skills & Expertise</h2>
+            <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[20px] sm:text-[22px]">What I do</p>
+            <h2 className="font-['Montserrat',sans-serif] font-semibold text-[30px] sm:text-[40px] text-black">Skills & Expertise</h2>
           </div>
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {skills.map((skill) => (
               <div
                 key={skill.label}
@@ -239,12 +239,12 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
       </section>
 
       {/* ── Tools ── */}
-      <section className="py-[80px] px-[80px]">
+      <section className="py-[60px] sm:py-[80px] px-6 sm:px-[80px]">
         <div className="max-w-[1280px] mx-auto">
-          <div className="flex items-end justify-between mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div className="flex flex-col gap-3">
-              <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[22px]">My Stack</p>
-              <h2 className="font-['Montserrat',sans-serif] font-semibold text-[40px] text-black">Tools I work with</h2>
+              <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[20px] sm:text-[22px]">My Stack</p>
+              <h2 className="font-['Montserrat',sans-serif] font-semibold text-[30px] sm:text-[40px] text-black">Tools I work with</h2>
             </div>
             <a
               href="https://docs.google.com/document/d/1Q3-IaiUvbQVL6w2QzXNDdYUMG-nNdHQ0B5zuRU4WFhI/edit?usp=drive_link"
@@ -252,7 +252,7 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
               rel="noopener noreferrer"
               className="group w-fit flex items-center gap-[10px] rounded-[40px] px-[16px] py-[10px] bg-[#201e21] hover:bg-[#6751a4] transition-all duration-300 cursor-pointer"
             >
-              <span className="font-['Montserrat',sans-serif] font-semibold text-[20px] leading-[32px] text-white whitespace-nowrap">
+              <span className="font-['Montserrat',sans-serif] font-semibold text-[16px] sm:text-[20px] leading-[24px] sm:leading-[32px] text-white whitespace-nowrap">
                 See Resume
               </span>
               <span className="rounded-full p-[10px] flex items-center shrink-0 bg-white group-hover:scale-110 transition-transform duration-300">
@@ -280,15 +280,15 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
       </section>
 
       {/* ── Experience ── */}
-      <section className="bg-[#201e21] rounded-tl-[80px] rounded-tr-[80px] px-[80px] py-[80px]">
-        <div className="max-w-[1280px] mx-auto flex gap-[66px] items-start">
+      <section className="bg-[#201e21] rounded-tl-[40px] sm:rounded-tl-[80px] rounded-tr-[40px] sm:rounded-tr-[80px] px-6 sm:px-[80px] py-[60px] sm:py-[80px]">
+        <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-[66px] items-start">
           {/* Sticky left sidebar — no photo, just text */}
-          <div className="sticky top-[100px] w-[429px] shrink-0 flex flex-col gap-[16px]">
-            <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[24px]">Experiences</p>
-            <h2 className="font-['Montserrat',sans-serif] font-semibold text-[40px] text-white capitalize leading-normal">
+          <div className="lg:sticky lg:top-[100px] w-full lg:w-[429px] lg:shrink-0 flex flex-col gap-[16px]">
+            <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[22px] sm:text-[24px]">Experiences</p>
+            <h2 className="font-['Montserrat',sans-serif] font-semibold text-[30px] sm:text-[40px] text-white capitalize leading-normal">
               Take a look at my past Experience
             </h2>
-            <p className="font-['Montserrat',sans-serif] font-medium text-[rgba(255,255,255,0.5)] text-[16px] leading-relaxed">
+            <p className="font-['Montserrat',sans-serif] font-medium text-[rgba(255,255,255,0.5)] text-[15px] sm:text-[16px] leading-relaxed">
               Helping brands build premium digital experiences through modern design and development.
             </p>
           </div>
@@ -298,7 +298,7 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
             {experience.map((exp, i) => (
               <div
                 key={exp.title}
-                className="sticky rounded-[20px] px-[32px] py-[28px] flex flex-col gap-[20px]"
+                className="sticky rounded-[20px] px-[20px] sm:px-[32px] py-[24px] sm:py-[28px] flex flex-col gap-[20px]"
                 style={{
                   top: `${100 + i * 16}px`,
                   zIndex: i + 1,
@@ -307,23 +307,23 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
                   boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
                 }}
               >
-                <div className="flex items-start justify-between text-white gap-4 border-b border-[#949393] pb-[20px]">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-white gap-4 border-b border-[#949393] pb-[20px]">
                   <div className="flex flex-col gap-[6px]">
-                    <p className="font-['Montserrat',sans-serif] font-bold text-[28px] leading-normal">{exp.title}</p>
-                    <p className="font-['Montserrat',sans-serif] font-medium text-[18px] text-[rgba(255,255,255,0.7)]">{exp.role}</p>
+                    <p className="font-['Montserrat',sans-serif] font-bold text-[22px] sm:text-[28px] leading-normal">{exp.title}</p>
+                    <p className="font-['Montserrat',sans-serif] font-medium text-[16px] sm:text-[18px] text-[rgba(255,255,255,0.7)]">{exp.role}</p>
                   </div>
-                  <span className="font-['Montserrat',sans-serif] font-medium text-[15px] text-[rgba(255,255,255,0.5)] bg-[rgba(255,255,255,0.06)] px-[14px] py-[6px] rounded-full whitespace-nowrap mt-1 border border-[rgba(255,255,255,0.1)]">
+                  <span className="font-['Montserrat',sans-serif] font-medium text-[13px] sm:text-[15px] text-[rgba(255,255,255,0.5)] bg-[rgba(255,255,255,0.06)] px-[14px] py-[6px] rounded-full whitespace-nowrap mt-0 sm:mt-1 border border-[rgba(255,255,255,0.1)]">
                     {exp.period}
                   </span>
                 </div>
-                <p className="font-['Montserrat',sans-serif] font-medium text-[#c2c2c2] text-[15px] leading-relaxed">
+                <p className="font-['Montserrat',sans-serif] font-medium text-[#c2c2c2] text-[14px] sm:text-[15px] leading-relaxed">
                   {exp.desc}
                 </p>
                 <div className="flex flex-wrap gap-[8px]">
                   {exp.tags.map((tag, ti) => (
                     <span
                       key={`${exp.title}-${ti}`}
-                      className="font-['Montserrat',sans-serif] font-medium text-[13px] text-white bg-[#333] rounded-[10px] px-[14px] py-[8px]"
+                      className="font-['Montserrat',sans-serif] font-medium text-[12px] sm:text-[13px] text-white bg-[#333] rounded-[10px] px-[14px] py-[8px]"
                     >
                       {tag}
                     </span>
@@ -336,7 +336,7 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
       </section>
 
       {/* ── Footer ── */}
-      <div className="mt-[80px]">
+      <div className="mt-[50px] sm:mt-[80px]">
         <Footer onNavigate={onNavigate} />
       </div>
     </div>

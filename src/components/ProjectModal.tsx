@@ -204,10 +204,10 @@ export default function ProjectModal({
         </div>
 
         {/* Modal Bottom Footer Navigation */}
-        <div className="sticky bottom-0 z-20 flex items-center justify-between px-6 py-4 bg-[#1a181c] border-t border-white/10">
+        <div className="sticky bottom-0 z-20 flex flex-wrap items-center justify-between gap-3 px-6 py-4 bg-[#1a181c] border-t border-white/10">
           <button
             onClick={() => onSelectProject && onSelectProject(prevProject)}
-            className="flex items-center gap-2 font-['Montserrat',sans-serif] font-semibold text-[14px] text-white/70 hover:text-white transition-colors cursor-pointer"
+            className="flex items-center gap-2 font-['Montserrat',sans-serif] font-semibold text-[13px] sm:text-[14px] text-white/70 hover:text-white transition-colors cursor-pointer max-w-[30%] sm:max-w-[26%] truncate"
           >
             ← {prevProject.title}
           </button>
@@ -218,7 +218,7 @@ export default function ProjectModal({
                 onClose();
                 onNavigateContact();
               }}
-              className="bg-[#6751a4] hover:bg-[#574194] text-white font-['Montserrat',sans-serif] font-semibold text-[14px] px-5 py-2.5 rounded-full transition-colors cursor-pointer"
+              className="bg-[#6751a4] hover:bg-[#574194] text-white font-['Montserrat',sans-serif] font-semibold text-[12px] sm:text-[14px] px-4 sm:px-5 py-2.5 rounded-full transition-colors cursor-pointer whitespace-nowrap"
             >
               Discuss a similar project →
             </button>
@@ -226,7 +226,7 @@ export default function ProjectModal({
 
           <button
             onClick={() => onSelectProject && onSelectProject(nextProject)}
-            className="flex items-center gap-2 font-['Montserrat',sans-serif] font-semibold text-[14px] text-white/70 hover:text-white transition-colors cursor-pointer"
+            className="flex items-center gap-2 font-['Montserrat',sans-serif] font-semibold text-[13px] sm:text-[14px] text-white/70 hover:text-white transition-colors cursor-pointer max-w-[30%] sm:max-w-[26%] truncate"
           >
             {nextProject.title} →
           </button>
