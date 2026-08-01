@@ -247,7 +247,7 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
               <h2 className="font-['Montserrat',sans-serif] font-semibold text-[40px] text-black">Tools I work with</h2>
             </div>
             <a
-              href="#"
+              href="https://docs.google.com/document/d/1Q3-IaiUvbQVL6w2QzXNDdYUMG-nNdHQ0B5zuRU4WFhI/edit?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className="group w-fit flex items-center gap-[10px] rounded-[40px] px-[16px] py-[10px] bg-[#201e21] hover:bg-[#6751a4] transition-all duration-300 cursor-pointer"

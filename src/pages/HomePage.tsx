@@ -4,7 +4,7 @@ import ProjectModal from "@/components/ProjectModal";
 import { Project, projects } from "@/data/work";
 import imgImage19 from "@/imports/Desktop1/0cfc52a2c77997eca1c9245e9ec11e0f7c3b05fd.png";
 import imgImage22 from "@/imports/Desktop1/8ee7c0e0b04b04b6f42ecba7d562c1f2fc11e64e.png";
-import imgFrame4273189921 from "@/imports/Desktop1/4d5ab96833c95087e1153c4f0381592f34531c55.png";
+import imgLandingPage from "@/imports/Landing Page.png";
 import imgWhatsApp from "@/imports/Desktop1/1f5966cb2a51fcf0db121c8e875607001e68b36b.png";
 import imgImage2 from "@/imports/Desktop1/04a4175d61916ad339d54536c582f1d7d949d717.png";
 import imgImage3 from "@/imports/Desktop1/fef05d0c2bf7fdc1ff7225cea865f75dd23ceeb2.png";
@@ -74,7 +74,7 @@ function Stars() {
 
 // ─── Image marquee ────────────────────────────────────────────────────────────
 const marqueeImages = [
-  imgFrame4273189921, imgWhatsApp, imgImage2, imgImage3,
+  imgLandingPage, imgWhatsApp, imgImage2, imgImage3,
   imgImage4, imgImage5, img278,
 ];
 
@@ -133,7 +133,7 @@ const services: Service[] = [
       "Clear User Flows",
       "CTA Optimization",
     ],
-    image: imgImage19,
+    image: imgLandingPage,
   },
   {
     title: "Antigravity Development",
@@ -202,7 +202,7 @@ function ServicesAccordion({ onContact }: { onContact: () => void }) {
               onKeyDown={(e) => e.key === "Enter" && setOpen(isOpen ? null : i)}
               className="relative cursor-pointer overflow-hidden transition-all duration-500 ease-in-out group/row"
               style={{
-                height: isOpen ? "307px" : "78px",
+                height: isOpen ? "380px" : "78px",
                 borderBottom: "1px solid #3d3d3d",
               }}
             >
@@ -211,7 +211,7 @@ function ServicesAccordion({ onContact }: { onContact: () => void }) {
                 className="absolute inset-0 flex items-center justify-between pr-[20px] py-[8px] transition-opacity duration-300"
                 style={{ opacity: isOpen ? 0 : 1, pointerEvents: isOpen ? "none" : "auto" }}
               >
-                <p className="font-['Montserrat',sans-serif] font-semibold text-[40px] text-black leading-normal whitespace-nowrap transition-colors duration-300">
+                <p className="font-['Montserrat',sans-serif] font-semibold text-[28px] text-black leading-normal whitespace-nowrap transition-colors duration-300">
                   <span>{svc.titleParts[0]}</span>
                   <span className={`transition-colors duration-300 ${isOther ? "text-[#6751a4]" : "text-black group-hover/row:text-[#6751a4]"}`}>
                     {svc.titleParts[1]}
@@ -235,12 +235,12 @@ function ServicesAccordion({ onContact }: { onContact: () => void }) {
                 style={{ opacity: isOpen ? 1 : 0, pointerEvents: isOpen ? "auto" : "none" }}
               >
                 {/* Left block — h-[268px] w-[558px] gap-[32px] */}
-                <div className="flex flex-col gap-[32px] h-[268px] w-[558px] items-start shrink-0">
+                <div className="flex flex-col gap-[32px] h-[340px] w-[558px] items-start shrink-0">
                   <div className="flex flex-col gap-[10px] w-full">
-                    <p className="font-['Montserrat',sans-serif] font-semibold text-[40px] text-black leading-normal whitespace-nowrap">
+                    <p className="font-['Montserrat',sans-serif] font-semibold text-[24px] text-black leading-normal whitespace-nowrap">
                       {svc.title}
                     </p>
-                    <p className="font-['Montserrat',sans-serif] font-medium text-[#333] text-[14px] w-[444px] leading-normal line-clamp-3">
+                    <p className="font-['Montserrat',sans-serif] font-medium text-[#333] text-[14px] w-[444px] leading-normal">
                       {svc.description}
                     </p>
                   </div>
@@ -256,7 +256,7 @@ function ServicesAccordion({ onContact }: { onContact: () => void }) {
                   </div>
                 </div>
                 {/* Project image — h-[276px] w-[522px] */}
-                <div className="h-[276px] w-[522px] rounded-[20px] overflow-hidden shrink-0">
+                <div className="h-[340px] w-[522px] rounded-[20px] overflow-hidden shrink-0">
                   <img
                     alt={svc.title}
                     src={svc.image}
@@ -389,10 +389,6 @@ export default function HomePage({ onNavigate }: { onNavigate: (p: Page) => void
             <br />
             <span className="font-['Playfair_Display',serif] italic font-medium">a </span>
             <span className="font-['Playfair_Display',serif] font-bold italic">Product Designer</span>
-            <br />
-            <span className="font-medium">creating meaningful digital</span>
-            <br />
-            <span className="font-medium">experiences.</span>
           </h1>
 
           <p className="font-['Montserrat',sans-serif] font-medium text-[#555] text-[17px] leading-relaxed max-w-[560px]">

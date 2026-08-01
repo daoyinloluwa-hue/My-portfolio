@@ -194,19 +194,6 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
                 </a>
               ))}
             </div>
-
-            {/* Response time */}
-            <div className="border border-[#f0f0f0] rounded-[16px] p-5 flex flex-col gap-2">
-              <div className="flex items-center gap-2">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6751a4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                </svg>
-                <p className="font-['Montserrat',sans-serif] font-semibold text-[14px] text-black">Response time</p>
-              </div>
-              <p className="font-['Montserrat',sans-serif] font-medium text-[13px] text-[#666] leading-relaxed">
-                I aim to reply within <strong>24 hours</strong> on business days. For urgent projects, mention it in your message.
-              </p>
-            </div>
           </div>
         </div>
       </section>
