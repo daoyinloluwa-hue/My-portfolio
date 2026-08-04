@@ -28,6 +28,16 @@ export interface Project {
   highlights: string[];
 }
 
+export function getAdjacentProjects(id: string): { prev?: Project; next?: Project } {
+  const index = projects.findIndex((p) => p.id === id);
+  if (index === -1) return {};
+  const length = projects.length;
+  return {
+    prev: projects[(index - 1 + length) % length],
+    next: projects[(index + 1) % length],
+  };
+}
+
 export const projects: Project[] = [
   {
     id: "iexplore",

@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
-import { Project, projects } from "@/data/work";
+import { useEffect, useRef, useState } from "react";
+import type { Project } from "@/data/work";
+import { onImgError } from "@/lib/image";
 
 interface ProjectModalProps {
   project: Project | null;
   onClose: () => void;
   onSelectProject?: (project: Project) => void;
   onNavigateContact?: () => void;
+  prevProject?: Project;
+  nextProject?: Project;
 }
 
 export default function ProjectModal({
@@ -13,8 +16,11 @@ export default function ProjectModal({
   onClose,
   onSelectProject,
   onNavigateContact,
+  prevProject,
+  nextProject,
 }: ProjectModalProps) {
   const [activeImage, setActiveImage] = useState<string | null>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -23,6 +29,22 @@ export default function ProjectModal({
           setActiveImage(null);
         } else {
           onClose();
+        }
+        return;
+      }
+      if (e.key === "Tab" && dialogRef.current) {
+        const focusables = Array.from(
+          dialogRef.current.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')
+        );
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
         }
       }
     }
@@ -36,11 +58,11 @@ export default function ProjectModal({
     };
   }, [project, activeImage, onClose]);
 
-  if (!project) return null;
+  useEffect(() => {
+    if (project) dialogRef.current?.focus();
+  }, [project]);
 
-  const currentIndex = projects.findIndex((p) => p.id === project.id);
-  const prevProject = projects[(currentIndex - 1 + projects.length) % projects.length];
-  const nextProject = projects[(currentIndex + 1) % projects.length];
+  if (!project) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto">
@@ -51,7 +73,14 @@ export default function ProjectModal({
       />
 
       {/* Main Modal Container */}
-      <div className="relative w-full max-w-[960px] bg-[#1a181c] text-white rounded-[32px] border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.5)] overflow-hidden my-auto max-h-[90vh] flex flex-col z-10 animate-in fade-in zoom-in-95 duration-200">
+      <div
+        ref={dialogRef}
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-label={project.title}
+        className="relative w-full max-w-[960px] bg-[#1a181c] text-white rounded-[32px] border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.5)] overflow-hidden my-auto max-h-[90vh] flex flex-col z-10 animate-in fade-in zoom-in-95 duration-200 outline-none"
+      >
         
         {/* Sticky Top Bar */}
         <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 bg-[#1a181c]/90 backdrop-blur-md border-b border-white/10">
@@ -117,6 +146,9 @@ export default function ProjectModal({
             <img
               src={project.image}
               alt={project.title}
+              loading="lazy"
+              decoding="async"
+              onError={onImgError}
               className="w-full h-[320px] sm:h-[440px] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
@@ -183,7 +215,7 @@ export default function ProjectModal({
                     onClick={() => setActiveImage(imgSrc)}
                     className="relative h-[200px] sm:h-[260px] rounded-[20px] overflow-hidden bg-black/30 border border-white/10 cursor-pointer group"
                   >
-                    <img src={imgSrc} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <img src={imgSrc} alt="" loading="lazy" decoding="async" onError={onImgError} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                       <span className="text-white text-xs font-semibold bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full">Expand</span>
                     </div>
@@ -205,12 +237,14 @@ export default function ProjectModal({
 
         {/* Modal Bottom Footer Navigation */}
         <div className="sticky bottom-0 z-20 flex flex-wrap items-center justify-between gap-3 px-6 py-4 bg-[#1a181c] border-t border-white/10">
-          <button
-            onClick={() => onSelectProject && onSelectProject(prevProject)}
-            className="flex items-center gap-2 font-['Montserrat',sans-serif] font-semibold text-[13px] sm:text-[14px] text-white/70 hover:text-white transition-colors cursor-pointer max-w-[30%] sm:max-w-[26%] truncate"
-          >
-            ← {prevProject.title}
-          </button>
+          {prevProject && onSelectProject && (
+            <button
+              onClick={() => onSelectProject(prevProject)}
+              className="flex items-center gap-2 font-['Montserrat',sans-serif] font-semibold text-[13px] sm:text-[14px] text-white/70 hover:text-white transition-colors cursor-pointer max-w-[30%] sm:max-w-[26%] truncate"
+            >
+              ← {prevProject.title}
+            </button>
+          )}
 
           {onNavigateContact && (
             <button
@@ -224,12 +258,14 @@ export default function ProjectModal({
             </button>
           )}
 
-          <button
-            onClick={() => onSelectProject && onSelectProject(nextProject)}
-            className="flex items-center gap-2 font-['Montserrat',sans-serif] font-semibold text-[13px] sm:text-[14px] text-white/70 hover:text-white transition-colors cursor-pointer max-w-[30%] sm:max-w-[26%] truncate"
-          >
-            {nextProject.title} →
-          </button>
+          {nextProject && onSelectProject && (
+            <button
+              onClick={() => onSelectProject(nextProject)}
+              className="flex items-center gap-2 font-['Montserrat',sans-serif] font-semibold text-[13px] sm:text-[14px] text-white/70 hover:text-white transition-colors cursor-pointer max-w-[30%] sm:max-w-[26%] truncate"
+            >
+              {nextProject.title} →
+            </button>
+          )}
         </div>
       </div>
 
@@ -239,7 +275,7 @@ export default function ProjectModal({
           onClick={() => setActiveImage(null)}
           className="fixed inset-0 z-60 bg-black/90 flex items-center justify-center p-4 cursor-zoom-out"
         >
-          <img src={activeImage} alt="Expanded view" className="max-w-full max-h-full object-contain rounded-lg" />
+          <img src={activeImage} alt="Expanded view" onError={onImgError} className="max-w-full max-h-full object-contain rounded-lg" />
         </div>
       )}
     </div>

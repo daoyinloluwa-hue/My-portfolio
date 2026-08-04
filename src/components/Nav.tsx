@@ -1,4 +1,4 @@
-type Page = "home" | "about" | "works" | "contact";
+import type { Page } from "@/types";
 
 type NavProps = {
   current: Page;

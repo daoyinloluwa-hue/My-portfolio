@@ -1,16 +1,18 @@
 import { useState } from "react";
 import Footer from "@/components/Footer";
+import ProjectCard from "@/components/ProjectCard";
 import ProjectModal from "@/components/ProjectModal";
-import { Project, projects } from "@/data/work";
+import { getAdjacentProjects, Project, projects } from "@/data/work";
+import type { Page } from "@/types";
 
-type Page = "home" | "about" | "works" | "contact";
-type FilterType = "All" | "Mobile App" | "Dashboard";
+type FilterType = "All" | Project["type"];
 
 const filters: FilterType[] = ["All", "Mobile App", "Dashboard"];
 
 export default function WorksPage({ onNavigate }: { onNavigate: (p: Page) => void }) {
   const [activeFilter, setActiveFilter] = useState<FilterType>("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const adjacent = selectedProject ? getAdjacentProjects(selectedProject.id) : null;
 
   const filtered = activeFilter === "All"
     ? projects
@@ -90,71 +92,12 @@ export default function WorksPage({ onNavigate }: { onNavigate: (p: Page) => voi
         onClose={() => setSelectedProject(null)}
         onSelectProject={(p) => setSelectedProject(p)}
         onNavigateContact={() => onNavigate("contact")}
+        prevProject={adjacent?.prev}
+        nextProject={adjacent?.next}
       />
 
       {/* ── Footer ── */}
       <Footer onNavigate={onNavigate} />
-    </div>
-  );
-}
-
-function ProjectCard({ project, onClick }: { project: Project; onClick: () => void }) {
-  return (
-    <div
-      onClick={onClick}
-      className="group rounded-[28px] overflow-hidden flex flex-col gap-0 bg-[#d8d8d8] cursor-pointer hover:-translate-y-1.5 transition-all duration-350 shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_40px_rgba(0,0,0,0.12)]"
-    >
-      {/* Image */}
-      <div className="h-[280px] relative overflow-hidden bg-[#c0c0c0]">
-        {project.secondImage && (
-          <img
-            alt=""
-            src={project.secondImage}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        )}
-        <img
-          alt={project.title}
-          src={project.image}
-          className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
-        />
-        {/* Type badge on image */}
-        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-          <span className="font-['Montserrat',sans-serif] font-semibold text-[12px] text-black">
-            {project.type}
-          </span>
-        </div>
-        {/* View Case Study pill */}
-        <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <span className="font-['Montserrat',sans-serif] font-semibold text-[12px] bg-[#201e21] text-white px-3.5 py-1.5 rounded-full shadow-md">
-            View Case Study ↗
-          </span>
-        </div>
-      </div>
-
-      {/* Info */}
-      <div className="flex flex-col gap-4 p-6">
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex flex-col gap-2">
-            <p className="font-['Montserrat',sans-serif] font-bold text-[22px] text-black leading-tight">
-              {project.title}
-            </p>
-            <p className="font-['Montserrat',sans-serif] font-medium text-[14px] text-[#444] leading-relaxed line-clamp-2">
-              {project.description}
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center justify-between pt-2 border-t border-[rgba(0,0,0,0.08)]">
-          <div className="flex items-center gap-1.5 font-['Montserrat',sans-serif] font-semibold text-[13px] text-[#666]">
-            <span>{project.category}</span>
-            <span className="text-[#bbb]">·</span>
-            <span>{project.type}</span>
-          </div>
-          <span className="font-['Montserrat',sans-serif] font-medium text-[12px] text-[#999]">
-            {project.year}
-          </span>
-        </div>
-      </div>
     </div>
   );
 }

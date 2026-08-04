@@ -1,9 +1,9 @@
+import ArrowUpRight from "@/components/ArrowUpRight";
 import imgImage31 from "@/imports/Desktop1/85dfdd7937dcd17d509a9033f8dfdb6ccb67e3c5.png";
 import imgImage29 from "@/imports/Desktop1/1d47b4541a677d60beeadc7b07e6268144aa0263.png";
 import imgImage32 from "@/imports/Desktop1/4b7c46a9d28acf066612a7354c8d0bf1c20b19fe.png";
-import svgPaths from "@/imports/Desktop1/svg-8fadhi2yqu";
-
-type Page = "home" | "about" | "works" | "contact";
+import { onImgError } from "@/lib/image";
+import type { Page } from "@/types";
 
 const navLinks: { label: string; page: Page }[] = [
   { label: "Home", page: "home" },
@@ -41,9 +41,7 @@ export default function Footer({ onNavigate }: { onNavigate: (p: Page) => void }
                 Start a conversation
               </span>
               <span className="bg-black rounded-full p-2.5 flex items-center group-hover:scale-110 transition-transform duration-300">
-                <svg width="13.5" height="13.5" viewBox="0 0 13.5004 13.5004" fill="none">
-                  <path d={svgPaths.p34838800} fill="white" />
-                </svg>
+                <ArrowUpRight size={13.5} color="white" />
               </span>
             </button>
           </div>
@@ -80,7 +78,7 @@ export default function Footer({ onNavigate }: { onNavigate: (p: Page) => void }
                     rel="noopener noreferrer"
                     className="group flex items-center gap-2.5 rounded-[12px] py-1 hover:opacity-70 transition-opacity duration-200"
                   >
-                    <img src={img} alt={label} className="w-8 h-8 sm:w-9 sm:h-9 object-cover rounded-[8px]" />
+                    <img src={img} alt={label} loading="lazy" onError={onImgError} className="w-8 h-8 sm:w-9 sm:h-9 object-cover rounded-[8px]" />
                     <span className="font-['Montserrat',sans-serif] font-semibold text-[16px] sm:text-[18px] text-white">
                       {label}
                     </span>

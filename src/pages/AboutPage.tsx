@@ -1,8 +1,10 @@
+import ArrowUpRight from "@/components/ArrowUpRight";
+import ExperienceSection from "@/components/ExperienceSection";
 import Footer from "@/components/Footer";
 import imgFrame427318995 from "@/imports/Desktop1/3eb90e10b19e878743d40bcb6bdede0203fad155.png";
 import svgPaths from "@/imports/Desktop1/svg-8fadhi2yqu";
-
-type Page = "home" | "about" | "works" | "contact";
+import { onImgError } from "@/lib/image";
+import type { Page } from "@/types";
 
 const skills = [
   {
@@ -118,30 +120,6 @@ function ToolIcon({ name }: { name: string }) {
   return <span className="w-4 h-4 rounded-sm bg-white/30" />;
 }
 
-const experience = [
-  {
-    title: "Maxx Connection",
-    role: "Product Designer",
-    period: "2025 – Present",
-    desc: "Designing user-centered digital experiences and supporting experiential marketing campaigns for leading brands including Coca-Cola, Monster Energy, Dettol, Airtel, Plazma and more.",
-    tags: ["Product Design", "Strategy", "Collaboration", "Client Service"],
-  },
-  {
-    title: "Freelancer",
-    role: "Product Designer",
-    period: "2025",
-    desc: "Partnered with startups to design intuitive mobile apps, SaaS platforms, and responsive websites from concept to launch.",
-    tags: ["Prototyping", "SaaS", "Product Design", "Web Design"],
-  },
-  {
-    title: "UI/UX Designer Trainee",
-    role: "Product Designer",
-    period: "2024 – 2025",
-    desc: "Completed intensive training in product design principles with hands-on projects focused on user research, wireframing, prototyping and UI design.",
-    tags: ["Product Design", "Strategy", "Collaboration", "Client Service"],
-  },
-];
-
 export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => void }) {
   return (
     <div className="flex flex-col">
@@ -194,6 +172,9 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
             <img
               alt="Oyinloluwa"
               src={imgFrame427318995}
+              loading="lazy"
+              decoding="async"
+              onError={onImgError}
               className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-600"
             />
             {/* Glass quote card */}
@@ -256,9 +237,7 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
                 See Resume
               </span>
               <span className="rounded-full p-[10px] flex items-center shrink-0 bg-white group-hover:scale-110 transition-transform duration-300">
-                <svg width="13" height="13" viewBox="0 0 13.5004 13.5004" fill="none">
-                  <path d={svgPaths.p34838800} fill="black" />
-                </svg>
+                <ArrowUpRight size={13} color="black" />
               </span>
             </a>
           </div>
@@ -280,60 +259,7 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
       </section>
 
       {/* ── Experience ── */}
-      <section className="bg-[#201e21] rounded-tl-[40px] sm:rounded-tl-[80px] rounded-tr-[40px] sm:rounded-tr-[80px] px-6 sm:px-[80px] py-[60px] sm:py-[80px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-[66px] items-start">
-          {/* Sticky left sidebar — no photo, just text */}
-          <div className="lg:sticky lg:top-[100px] w-full lg:w-[429px] lg:shrink-0 flex flex-col gap-[16px]">
-            <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[22px] sm:text-[24px]">Experiences</p>
-            <h2 className="font-['Montserrat',sans-serif] font-semibold text-[30px] sm:text-[40px] text-white capitalize leading-normal">
-              Take a look at my past Experience
-            </h2>
-            <p className="font-['Montserrat',sans-serif] font-medium text-[rgba(255,255,255,0.5)] text-[15px] sm:text-[16px] leading-relaxed">
-              Helping brands build premium digital experiences through modern design and development.
-            </p>
-          </div>
-
-          {/* Right cards — stacking sticky, z-index increases */}
-          <div className="flex flex-col gap-[24px] flex-1 py-[8px]">
-            {experience.map((exp, i) => (
-              <div
-                key={exp.title}
-                className="sticky rounded-[20px] px-[20px] sm:px-[32px] py-[24px] sm:py-[28px] flex flex-col gap-[20px]"
-                style={{
-                  top: `${100 + i * 16}px`,
-                  zIndex: i + 1,
-                  background: `hsl(${270 + i * 4}, 8%, ${13 + i * 3}%)`,
-                  border: "1px solid rgba(255,255,255,0.12)",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
-                }}
-              >
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-white gap-4 border-b border-[#949393] pb-[20px]">
-                  <div className="flex flex-col gap-[6px]">
-                    <p className="font-['Montserrat',sans-serif] font-bold text-[22px] sm:text-[28px] leading-normal">{exp.title}</p>
-                    <p className="font-['Montserrat',sans-serif] font-medium text-[16px] sm:text-[18px] text-[rgba(255,255,255,0.7)]">{exp.role}</p>
-                  </div>
-                  <span className="font-['Montserrat',sans-serif] font-medium text-[13px] sm:text-[15px] text-[rgba(255,255,255,0.5)] bg-[rgba(255,255,255,0.06)] px-[14px] py-[6px] rounded-full whitespace-nowrap mt-0 sm:mt-1 border border-[rgba(255,255,255,0.1)]">
-                    {exp.period}
-                  </span>
-                </div>
-                <p className="font-['Montserrat',sans-serif] font-medium text-[#c2c2c2] text-[14px] sm:text-[15px] leading-relaxed">
-                  {exp.desc}
-                </p>
-                <div className="flex flex-wrap gap-[8px]">
-                  {exp.tags.map((tag, ti) => (
-                    <span
-                      key={`${exp.title}-${ti}`}
-                      className="font-['Montserrat',sans-serif] font-medium text-[12px] sm:text-[13px] text-white bg-[#333] rounded-[10px] px-[14px] py-[8px]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ExperienceSection />
 
       {/* ── Footer ── */}
       <div className="mt-[50px] sm:mt-[80px]">

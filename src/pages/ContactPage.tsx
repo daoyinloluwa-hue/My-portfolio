@@ -1,10 +1,11 @@
 import { useState } from "react";
+import ArrowUpRight from "@/components/ArrowUpRight";
 import Footer from "@/components/Footer";
 import imgImage31 from "@/imports/Desktop1/85dfdd7937dcd17d509a9033f8dfdb6ccb67e3c5.png";
 import imgImage29 from "@/imports/Desktop1/1d47b4541a677d60beeadc7b07e6268144aa0263.png";
-import svgPaths from "@/imports/Desktop1/svg-8fadhi2yqu";
-
-type Page = "home" | "about" | "works" | "contact";
+import { sendContactMessage } from "@/lib/contact";
+import { onImgError } from "@/lib/image";
+import type { Page } from "@/types";
 
 const socials = [
   {
@@ -23,8 +24,8 @@ const socials = [
   },
   {
     name: "Email",
-    handle: "oyinloluwadaodu@gmail.com",
-    href: "mailto:oyinloluwadaodu@gmail.com",
+    handle: "daoyinloluwa@gmail.com",
+    href: "mailto:daoyinloluwa@gmail.com",
     img: null,
     color: "#ea4335",
   },
@@ -32,12 +33,28 @@ const socials = [
 
 export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => void }) {
   const [form, setForm] = useState({ name: "", email: "", message: "", project: "" });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSent(true);
+    if (status === "sending") return;
+    setStatus("sending");
+    setSubmitError(null);
+    try {
+      await sendContactMessage(form);
+      setStatus("success");
+    } catch {
+      setStatus("error");
+      setSubmitError("Your message couldn't be sent. Please try again, or email me directly at daoyinloluwa@gmail.com.");
+    }
+  }
+
+  function resetForm() {
+    setForm({ name: "", email: "", message: "", project: "" });
+    setStatus("idle");
+    setSubmitError(null);
   }
 
   return (
@@ -57,7 +74,7 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 lg:gap-[80px] items-start">
           {/* ── Form ── */}
-          {sent ? (
+          {status === "success" ? (
             <div className="flex flex-col gap-6 items-center justify-center py-32 text-center">
               <div className="w-20 h-20 bg-[#201e21] rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(32,30,33,0.25)]">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -65,13 +82,17 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
                 </svg>
               </div>
               <div className="flex flex-col gap-2">
-                <h2 className="font-['Montserrat',sans-serif] font-semibold text-[32px] text-black">Message sent!</h2>
+                <h2 className="font-['Montserrat',sans-serif] font-semibold text-[32px] text-black">Thanks for reaching out!</h2>
                 <p className="font-['Montserrat',sans-serif] font-medium text-[#666] text-[16px] leading-relaxed max-w-[400px]">
-                  Thanks for reaching out. I'll get back to you within 1–2 business days.
+                  Your email app should have opened with your message ready to send. If it didn't, email me directly at{" "}
+                  <a href="mailto:daoyinloluwa@gmail.com" className="text-[#6751a4] underline">
+                    daoyinloluwa@gmail.com
+                  </a>
+                  .
                 </p>
               </div>
               <button
-                onClick={() => setSent(false)}
+                onClick={resetForm}
                 className="font-['Montserrat',sans-serif] font-semibold text-[15px] text-[#6751a4] hover:text-black transition-colors flex items-center gap-1.5"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -82,6 +103,18 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              {status === "error" && submitError && (
+                <div className="flex items-start gap-3 p-4 rounded-[16px] bg-[#fef2f2] border border-[#fecaca]">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#991b1b] shrink-0 mt-0.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                  <p className="font-['Montserrat',sans-serif] font-medium text-[14px] text-[#991b1b] leading-relaxed">
+                    {submitError}
+                  </p>
+                </div>
+              )}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <FormField
                   label="Your Name"
@@ -135,13 +168,14 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
               </div>
               <button
                 type="submit"
-                className="group self-start flex items-center gap-3 bg-[#201e21] rounded-[40px] px-6 py-3.5 cursor-pointer hover:bg-[#6751a4] transition-all duration-300"
+                disabled={status === "sending"}
+                className="group self-start flex items-center gap-3 bg-[#201e21] rounded-[40px] px-6 py-3.5 cursor-pointer hover:bg-[#6751a4] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-[#201e21]"
               >
-                <span className="font-['Montserrat',sans-serif] font-semibold text-[17px] text-white">Send Message</span>
+                <span className="font-['Montserrat',sans-serif] font-semibold text-[17px] text-white">
+                  {status === "sending" ? "Sending…" : "Send Message"}
+                </span>
                 <span className="bg-white rounded-full p-2 flex items-center group-hover:scale-110 transition-transform duration-300">
-                  <svg width="13" height="13" viewBox="0 0 13.5004 13.5004" fill="none">
-                    <path d={svgPaths.p34838800} fill="black" />
-                  </svg>
+                  <ArrowUpRight size={13} color="black" />
                 </span>
               </button>
             </form>
@@ -175,7 +209,7 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
                   className="group flex items-center gap-4 p-4 rounded-[18px] border border-[#ebebeb] hover:border-[#6751a4] hover:shadow-[0_4px_20px_rgba(103,81,164,0.1)] transition-all duration-300"
                 >
                   {social.img ? (
-                    <img src={social.img} alt={social.name} className="w-10 h-10 object-cover rounded-[10px]" />
+                    <img src={social.img} alt={social.name} loading="lazy" onError={onImgError} className="w-10 h-10 object-cover rounded-[10px]" />
                   ) : (
                     <div className="w-10 h-10 rounded-[10px] flex items-center justify-center shrink-0" style={{ backgroundColor: social.color }}>
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -188,9 +222,7 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
                     <p className="font-['Montserrat',sans-serif] font-semibold text-[15px] text-black group-hover:text-[#6751a4] transition-colors duration-200">{social.name}</p>
                     <p className="font-['Montserrat',sans-serif] font-medium text-[12px] text-[#888]">{social.handle}</p>
                   </div>
-                  <svg width="14" height="14" viewBox="0 0 13.5004 13.5004" fill="none" className="text-[#ccc] group-hover:text-[#6751a4] transition-colors duration-200 shrink-0">
-                    <path d={svgPaths.p34838800} fill="currentColor" />
-                  </svg>
+                  <ArrowUpRight size={14} className="text-[#ccc] group-hover:text-[#6751a4] transition-colors duration-200 shrink-0" />
                 </a>
               ))}
             </div>

@@ -4,8 +4,7 @@ import HomePage from "@/pages/HomePage";
 import AboutPage from "@/pages/AboutPage";
 import WorksPage from "@/pages/WorksPage";
 import ContactPage from "@/pages/ContactPage";
-
-type Page = "home" | "about" | "works" | "contact";
+import type { Page } from "@/types";
 
 export default function App() {
   const [page, setPage] = useState<Page>("home");
