@@ -5,7 +5,16 @@ import imgFrame427318624 from "@/imports/Desktop1/38c0921037dc7f6a775e5359eed7b1
 import img278 from "@/imports/Desktop1/2c483670d684a4c12ad0592c842f2565471dbf66.png";
 import imgImage19 from "@/imports/Desktop1/0cfc52a2c77997eca1c9245e9ec11e0f7c3b05fd.png";
 import imgImage22 from "@/imports/Desktop1/8ee7c0e0b04b04b6f42ecba7d562c1f2fc11e64e.png";
-import imgWhatsApp from "@/imports/Desktop1/1f5966cb2a51fcf0db121c8e875607001e68b36b.png";
+import grabbyGallery1 from "@/imports/Desktop1/grabby-gallery-1.jpeg";
+import grabbyGallery2 from "@/imports/Desktop1/grabby-gallery-2.jpeg";
+import grabbyGallery3 from "@/imports/Desktop1/grabby-gallery-3.jpeg";
+import grabbyGallery4 from "@/imports/Desktop1/grabby-gallery-4.jpeg";
+import grabbyDemo from "@/imports/Desktop1/grabby-demo.mp4";
+import grabbyDemo2 from "@/imports/Desktop1/grabby-demo-2.mp4";
+import cammyGallery1 from "@/imports/Desktop1/cammy-gallery-1.jpeg";
+import cammyGallery2 from "@/imports/Desktop1/cammy-gallery-2.jpeg";
+import iexploreCover from "@/imports/Desktop1/iexplore-cover.png";
+import iexploreCard from "@/imports/Desktop1/iexplore-card.png";
 
 export interface Project {
   id: string;
@@ -18,6 +27,7 @@ export interface Project {
   image: string;
   secondImage?: string;
   galleryImages?: string[];
+  galleryVideos?: string[];
   year: string;
   role: string;
   duration: string;
@@ -49,9 +59,9 @@ export const projects: Project[] = [
       "iexplore is a mobile solution crafted for nightlife enthusiasts who want to discover vibrant venues, organize group outings smoothly, and stay safe during late-night adventures. The app blends real-time crowd insights, verified venue atmosphere ratings, and integrated safety signals into an intuitive, polished mobile experience.",
     category: "Nightlife",
     type: "Mobile App",
-    image: imgFrame427318621,
+    image: iexploreCard,
     secondImage: img278,
-    galleryImages: [imgFrame427318621, img278, imgWhatsApp],
+    galleryImages: [iexploreCover, iexploreCard],
     year: "2025",
     role: "Lead Product Designer",
     duration: "8 weeks",
@@ -80,12 +90,13 @@ export const projects: Project[] = [
     type: "Mobile App",
     image: imgFrame427318622,
     secondImage: imgImage19,
-    galleryImages: [imgFrame427318622, imgImage19],
+    galleryImages: [grabbyGallery1, grabbyGallery2],
+    galleryVideos: [grabbyDemo2],
     year: "2025",
     role: "Product Designer",
     duration: "6 weeks",
     client: "Grabby Commerce",
-    tags: ["SaaS", "Mobile App", "Inventory", "FinTech"],
+    tags: ["SaaS", "Mobile App", "Inventory"],
     challenge:
       "Small retail owners struggle with complex multi-system setups that slow down checkout queues and cause inventory tracking errors.",
     solution:
@@ -109,12 +120,12 @@ export const projects: Project[] = [
     type: "Dashboard",
     image: imgFrame427318623,
     secondImage: imgImage22,
-    galleryImages: [imgFrame427318623, imgImage22],
+    galleryImages: [imgFrame427318623, cammyGallery1, cammyGallery2],
     year: "2025",
     role: "UI/UX Designer",
     duration: "5 weeks",
     client: "Cammy Commerce",
-    tags: ["Product Design", "Dashboard", "Web App", "Analytics"],
+    tags: ["Product Design", "Dashboard", "Analytics"],
     challenge:
       "Operations managers suffered from cognitive overload navigating convoluted, multi-page order tables with poor visual hierarchy.",
     solution:
@@ -138,7 +149,8 @@ export const projects: Project[] = [
     type: "Mobile App",
     image: imgFrame427318624,
     secondImage: imgFrame427318621,
-    galleryImages: [imgFrame427318624, imgFrame427318621],
+    galleryImages: [grabbyGallery3, grabbyGallery4],
+    galleryVideos: [grabbyDemo],
     year: "2024",
     role: "Lead UI/UX Designer",
     duration: "7 weeks",

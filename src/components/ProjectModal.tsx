@@ -20,6 +20,7 @@ export default function ProjectModal({
   nextProject,
 }: ProjectModalProps) {
   const [activeImage, setActiveImage] = useState<string | null>(null);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,6 +28,8 @@ export default function ProjectModal({
       if (e.key === "Escape") {
         if (activeImage) {
           setActiveImage(null);
+        } else if (activeVideo) {
+          setActiveVideo(null);
         } else {
           onClose();
         }
@@ -56,7 +59,7 @@ export default function ProjectModal({
       document.body.style.overflow = "auto";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [project, activeImage, onClose]);
+  }, [project, activeImage, activeVideo, onClose]);
 
   useEffect(() => {
     if (project) dialogRef.current?.focus();
@@ -205,11 +208,12 @@ export default function ProjectModal({
           </div>
 
           {/* Gallery Showcase */}
-          {project.galleryImages && project.galleryImages.length > 1 && (
+          {(project.galleryImages && project.galleryImages.length > 0) ||
+          (project.galleryVideos && project.galleryVideos.length > 0) ? (
             <div className="space-y-4">
               <h3 className="font-['Montserrat',sans-serif] font-bold text-[20px] text-white">Interface Gallery</h3>
               <div className="grid grid-cols-2 gap-4">
-                {project.galleryImages.map((imgSrc, idx) => (
+                {project.galleryImages?.map((imgSrc, idx) => (
                   <div
                     key={idx}
                     onClick={() => setActiveImage(imgSrc)}
@@ -221,9 +225,28 @@ export default function ProjectModal({
                     </div>
                   </div>
                 ))}
+                {project.galleryVideos?.map((videoSrc, idx) => (
+                  <div
+                    key={`video-${idx}`}
+                    onClick={() => setActiveVideo(videoSrc)}
+                    className="relative h-[200px] sm:h-[260px] rounded-[20px] overflow-hidden bg-black/30 border border-white/10 cursor-pointer group"
+                  >
+                    <video
+                      src={videoSrc}
+                      muted
+                      loop
+                      playsInline
+                      autoPlay
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="text-white text-xs font-semibold bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full">Expand</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          )}
+          ) : null}
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 pt-2">
@@ -276,6 +299,14 @@ export default function ProjectModal({
           className="fixed inset-0 z-60 bg-black/90 flex items-center justify-center p-4 cursor-zoom-out"
         >
           <img src={activeImage} alt="Expanded view" onError={onImgError} className="max-w-full max-h-full object-contain rounded-lg" />
+        </div>
+      )}
+      {activeVideo && (
+        <div
+          onClick={() => setActiveVideo(null)}
+          className="fixed inset-0 z-60 bg-black/90 flex items-center justify-center p-4 cursor-zoom-out"
+        >
+          <video src={activeVideo} controls autoPlay playsInline className="max-w-full max-h-full object-contain rounded-lg" />
         </div>
       )}
     </div>
