@@ -15,6 +15,7 @@ import cammyGallery1 from "@/imports/Desktop1/cammy-gallery-1.jpeg";
 import cammyGallery2 from "@/imports/Desktop1/cammy-gallery-2.jpeg";
 import iexploreCover from "@/imports/Desktop1/iexplore-cover.png";
 import iexploreCard from "@/imports/Desktop1/iexplore-card.png";
+import imgLandingPage from "@/imports/landing-page.png";
 
 export interface Project {
   id: string;
@@ -23,7 +24,7 @@ export interface Project {
   description: string;
   fullDescription: string;
   category: string;
-  type: "Mobile App" | "Dashboard";
+  type: "Mobile App" | "Dashboard" | "Website";
   image: string;
   secondImage?: string;
   galleryImages?: string[];
@@ -62,7 +63,7 @@ export const projects: Project[] = [
     image: iexploreCard,
     secondImage: img278,
     galleryImages: [iexploreCover, iexploreCard],
-    year: "2025",
+    year: "2026",
     role: "Lead Product Designer",
     duration: "8 weeks",
     client: "iexplore Inc.",
@@ -151,7 +152,7 @@ export const projects: Project[] = [
     secondImage: imgFrame427318621,
     galleryImages: [grabbyGallery3, grabbyGallery4],
     galleryVideos: [grabbyDemo],
-    year: "2024",
+    year: "2026",
     role: "Lead UI/UX Designer",
     duration: "7 weeks",
     client: "AfriReuse Foundation",
@@ -165,6 +166,33 @@ export const projects: Project[] = [
       "Hyper-local radius matching and secure chat messaging",
       "Community impact metrics tracking items saved from landfills",
       "Verified user trust badges and neighborhood rating system",
+    ],
+  },
+  {
+    id: "maxxconnection",
+    title: "MaxxConnection",
+    subtitle: "Website Design for an Experiential Marketing Agency",
+    description:
+      "A bold, immersive website designed for an experiential marketing agency to showcase campaigns and win new clients.",
+    fullDescription:
+      "MaxxConnection is an experiential marketing agency that turns brands into moments people remember. Their website was redesigned to reflect the energy of the experiences they produce — pairing bold editorial typography, full-bleed campaign imagery, and smooth scroll-driven motion with a clear, conversion-focused layout. The result is a site that feels as alive as the activations the agency creates.",
+    category: "Web Design",
+    type: "Website",
+    image: imgLandingPage,
+    year: "2026",
+    role: "UI/UX Designer",
+    duration: "6 weeks",
+    client: "MaxxConnection",
+    tags: ["Web Design", "Website", "Marketing", "Branding"],
+    challenge:
+      "The agency's outdated website failed to capture the high-energy, immersive nature of its work, making it hard to communicate value and generate qualified leads.",
+    solution:
+      "Designed a cinematic, scroll-driven website with bold campaign showcases, clear service pillars, and prominent conversion paths to turn visitors into booked projects.",
+    highlights: [
+      "Full-bleed campaign galleries with hover-driven previews",
+      "Cinematic scroll animations that mirror live event energy",
+      "Clear service architecture and streamlined inquiry flow",
+      "Fully responsive layouts tuned for agency pitching on mobile",
     ],
   },
 ];

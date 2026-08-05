@@ -7,7 +7,7 @@ import type { Page } from "@/types";
 
 type FilterType = "All" | Project["type"];
 
-const filters: FilterType[] = ["All", "Mobile App", "Dashboard"];
+const filters: FilterType[] = ["All", "Mobile App", "Dashboard", "Website"];
 
 export default function WorksPage({ onNavigate }: { onNavigate: (p: Page) => void }) {
   const [activeFilter, setActiveFilter] = useState<FilterType>("All");
