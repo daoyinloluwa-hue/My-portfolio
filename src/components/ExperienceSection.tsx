@@ -22,7 +22,7 @@ export default function ExperienceSection({ className = "" }: { className?: stri
               key={exp.title}
               className="sticky rounded-[20px] px-[20px] sm:px-[32px] py-[24px] sm:py-[28px] flex flex-col gap-[20px]"
               style={{
-                top: `${100 + i * 16}px`,
+                top: `${90 + i * 14}px`,
                 zIndex: i + 1,
                 background: `hsl(${270 + i * 4}, 8%, ${13 + i * 3}%)`,
                 border: "1px solid rgba(255,255,255,0.12)",

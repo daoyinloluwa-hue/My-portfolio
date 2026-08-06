@@ -29,7 +29,7 @@ export default function Footer({ onNavigate }: { onNavigate: (p: Page) => void }
               <p className="font-['Montserrat',sans-serif] font-semibold text-[13px] sm:text-[15px] text-[rgba(255,255,255,0.5)] uppercase tracking-[0.12em]">
                 Available for freelance work, contracts, and full time opportunities.
               </p>
-              <h2 className="font-['Montserrat',sans-serif] font-bold text-[28px] sm:text-[38px] uppercase text-white leading-[1.15]">
+              <h2 className="font-['Montserrat',sans-serif] font-bold text-[24px] sm:text-[38px] uppercase text-white leading-[1.15]">
                 Every great experience begins with a conversation.
               </h2>
             </div>
@@ -47,7 +47,7 @@ export default function Footer({ onNavigate }: { onNavigate: (p: Page) => void }
           </div>
 
           {/* Right — nav + socials */}
-          <div className="flex gap-12 sm:gap-16 shrink-0 pt-2">
+          <div className="flex gap-8 sm:gap-16 shrink-0 pt-2">
             <div className="flex flex-col gap-5">
               <p className="font-['Montserrat',sans-serif] font-semibold text-[13px] text-[#ccc] uppercase tracking-[0.14em]">
                 Navigation

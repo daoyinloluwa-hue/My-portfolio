@@ -175,7 +175,7 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
               loading="lazy"
               decoding="async"
               onError={onImgError}
-              className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-600"
+              className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-600"
             />
             {/* Glass quote card */}
             <div

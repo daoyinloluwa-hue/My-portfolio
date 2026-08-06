@@ -53,7 +53,7 @@ export default function HomePage({ onNavigate }: { onNavigate: (p: Page) => void
             I design thoughtful digital products that combine research, strategy, and beautiful interfaces to solve real business and user problems.
           </p>
 
-          <div className="flex items-center gap-3 sm:gap-4 mt-2">
+          <div className="flex items-center justify-center flex-wrap gap-3 sm:gap-4 mt-2">
             <PillButton label="Contact Me" dark onClick={() => onNavigate("contact")} />
             <button
               onClick={() => onNavigate("works")}
@@ -72,21 +72,22 @@ export default function HomePage({ onNavigate }: { onNavigate: (p: Page) => void
 
       {/* ── About preview (dark card) ─────────────────────────── */}
       <section className="w-full px-6 sm:px-[80px] py-[60px] sm:py-[80px]">
-        <div className="max-w-[1280px] mx-auto bg-[#201e21] rounded-[40px] min-h-[617px] relative overflow-hidden">
-          {/* Right photo */}
-          <div className="absolute right-0 top-0 h-full w-full md:w-[580px] overflow-hidden rounded-b-[40px] rounded-t-[40px] md:rounded-bl-[40px] md:rounded-tl-[40px] opacity-20 md:opacity-100">
+        <div className="max-w-[1280px] mx-auto bg-[#201e21] rounded-[40px] relative overflow-hidden flex flex-col lg:flex-row">
+          {/* Photo — block on mobile/tablet, right side on desktop */}
+          <div className="relative w-full lg:order-2 lg:w-[45%] h-[240px] sm:h-[320px] lg:h-auto overflow-hidden">
             <img
               alt="Oyinloluwa"
               src={imgFrame427318995}
               loading="lazy"
               decoding="async"
               onError={onImgError}
-              className="absolute h-[125%] left-0 top-[-6.23%] w-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover object-top"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#201e21] via-transparent to-transparent lg:hidden" />
           </div>
 
           {/* Left content */}
-          <div className="relative md:absolute md:left-[64px] md:top-[60px] flex flex-col gap-8 w-full md:w-[560px] p-8 sm:p-12 md:p-0">
+          <div className="relative lg:order-1 flex-1 flex flex-col gap-8 w-full p-6 sm:p-10 lg:p-[64px]">
             <div className="inline-flex items-center gap-2 border border-[#5f51a4] rounded-[40px] px-4 py-3 w-fit">
               <svg width="18" height="18" viewBox="0 0 22.5027 22.5027" fill="none" className="opacity-70">
                 <path d={svgPaths.p214cbe70} fill="#6B47D3" />
@@ -128,18 +129,18 @@ export default function HomePage({ onNavigate }: { onNavigate: (p: Page) => void
 
       {/* ── Selected Works ────────────────────────────────────── */}
       <section className="w-full px-6 sm:px-[80px] py-[50px] sm:py-[60px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row gap-10 md:gap-[17px] items-start">
+        <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-[32px] items-start">
           {/* Sticky left sidebar */}
-          <div className="md:sticky md:top-0 w-full md:w-[701px] md:shrink-0 flex flex-col gap-[24px]">
+          <div className="lg:sticky lg:top-[100px] w-full lg:max-w-[500px] lg:shrink-0 flex flex-col gap-[24px]">
             <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[22px] sm:text-[24px]">Selected Works</p>
-            <h2 className="font-['Montserrat',sans-serif] font-semibold text-[30px] sm:text-[40px] text-black leading-normal w-full sm:w-[592px]">
+            <h2 className="font-['Montserrat',sans-serif] font-semibold text-[30px] sm:text-[40px] text-black leading-normal w-full">
               A selection of interfaces I've designed across mobile and web.
             </h2>
             <PillButton label="Contact Me" dark onClick={() => onNavigate("contact")} />
           </div>
 
           {/* Right card column */}
-          <div className="flex flex-col gap-[32px] sm:gap-[40px] px-0 sm:px-[54px] py-[32px] w-full sm:w-[562px]">
+          <div className="flex flex-col gap-[32px] sm:gap-[40px] w-full lg:flex-1 py-[8px] lg:py-[24px]">
             {projects.map((w) => (
               <ProjectCard
                 key={w.id}
