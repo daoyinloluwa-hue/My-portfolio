@@ -40,7 +40,7 @@ export default function ProjectCard({ project, onClick, variant = "grid" }: Proj
     return (
       <div
         onClick={onClick}
-        className="bg-[#ccc] flex flex-col gap-[16px] px-[16px] py-[20px] rounded-[32px] sm:rounded-[40px] w-full cursor-pointer group hover:-translate-y-1.5 transition-all duration-300"
+        className="bg-[#ccc] flex flex-col gap-[16px] px-[16px] py-[20px] rounded-[32px] sm:rounded-[40px] w-full lg:sticky lg:top-[100px] cursor-pointer group hover:-translate-y-1.5 transition-all duration-300"
       >
         <div className="h-[200px] sm:h-[260px] lg:h-[320px] rounded-[28px] sm:rounded-[40px] overflow-hidden w-full relative">
           <ProjectImage project={project} />
