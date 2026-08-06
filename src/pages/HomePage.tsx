@@ -74,7 +74,7 @@ export default function HomePage({ onNavigate }: { onNavigate: (p: Page) => void
       <section className="w-full px-6 sm:px-[80px] py-[60px] sm:py-[80px]">
         <div className="max-w-[1280px] mx-auto bg-[#201e21] rounded-[40px] relative overflow-hidden flex flex-col lg:flex-row">
           {/* Photo — block on mobile/tablet, right side on desktop */}
-          <div className="relative w-full lg:order-2 lg:w-[45%] h-[240px] sm:h-[320px] lg:h-auto overflow-hidden">
+          <div className="relative w-full lg:order-2 lg:w-[45%] lg:aspect-[4/5] lg:self-start h-[240px] sm:h-[320px] lg:h-auto overflow-hidden">
             <img
               alt="Oyinloluwa"
               src={imgFrame427318995}
@@ -87,7 +87,7 @@ export default function HomePage({ onNavigate }: { onNavigate: (p: Page) => void
           </div>
 
           {/* Left content */}
-          <div className="relative lg:order-1 flex-1 flex flex-col gap-8 w-full p-6 sm:p-10 lg:p-[64px]">
+          <div className="relative lg:order-1 flex-1 flex flex-col gap-8 w-full p-6 sm:p-10 lg:p-[64px] lg:justify-center">
             <div className="inline-flex items-center gap-2 border border-[#5f51a4] rounded-[40px] px-4 py-3 w-fit">
               <svg width="18" height="18" viewBox="0 0 22.5027 22.5027" fill="none" className="opacity-70">
                 <path d={svgPaths.p214cbe70} fill="#6B47D3" />
