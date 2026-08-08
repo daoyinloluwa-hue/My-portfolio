@@ -7,7 +7,7 @@ type NavProps = {
 
 export default function Nav({ current, onNavigate }: NavProps) {
   return (
-    <nav className="fixed left-1/2 -translate-x-1/2 top-3 sm:top-[28px] z-40 flex items-center gap-1 sm:gap-4 bg-[#201e21]/95 backdrop-blur-md rounded-[60px] px-2.5 sm:px-5 py-2 sm:py-3.5 shadow-2xl border border-white/10 max-w-[95vw] w-fit">
+    <nav className="fixed left-1/2 -translate-x-1/2 top-3 sm:top-[28px] z-40 flex items-center justify-between sm:justify-start gap-1 sm:gap-4 bg-[#201e21]/95 backdrop-blur-md rounded-[60px] px-2.5 sm:px-5 py-2 sm:py-3.5 shadow-2xl border border-white/10 w-[calc(100vw-24px)] max-w-[95vw] sm:w-fit sm:max-w-[98vw]">
       <NavItem label="Home" active={current === "home"} onClick={() => onNavigate("home")} />
       <NavItem label="Work" active={current === "works"} onClick={() => onNavigate("works")} />
       <NavItem label="About" active={current === "about"} onClick={() => onNavigate("about")} />

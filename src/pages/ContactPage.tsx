@@ -159,9 +159,9 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
                   onFocus={() => setFocused("message")}
                   onBlur={() => setFocused(null)}
                   required
-                  className="font-['Montserrat',sans-serif] font-medium text-[16px] text-black border rounded-[18px] px-5 py-4 resize-none outline-none transition-all duration-300 placeholder:text-[#bbb] bg-[#fafafa]"
+                  className="font-['Montserrat',sans-serif] font-medium text-[16px] text-black border border-[#e8e8e8] rounded-[18px] px-5 py-4 resize-none outline-none transition-all duration-300 placeholder:text-[#bbb] bg-[#fafafa]"
                   style={{
-                    borderColor: focused === "message" ? "#6751a4" : "#e8e8e8",
+                    borderColor: focused === "message" ? "#6751a4" : undefined,
                     boxShadow: focused === "message" ? "0 0 0 3px rgba(103,81,164,0.08)" : "none",
                   }}
                 />
@@ -268,9 +268,9 @@ function FormField({
         onFocus={onFocus}
         onBlur={onBlur}
         required={required}
-        className="font-['Montserrat',sans-serif] font-medium text-[16px] text-black rounded-[14px] px-5 py-4 outline-none transition-all duration-300 placeholder:text-[#bbb] bg-[#fafafa]"
+        className="font-['Montserrat',sans-serif] font-medium text-[16px] text-black border border-[#e8e8e8] rounded-[14px] px-5 py-4 outline-none transition-all duration-300 placeholder:text-[#bbb] bg-[#fafafa]"
         style={{
-          border: `1px solid ${focused ? "#6751a4" : "#e8e8e8"}`,
+          borderColor: focused ? "#6751a4" : undefined,
           boxShadow: focused ? "0 0 0 3px rgba(103,81,164,0.08)" : "none",
         }}
       />

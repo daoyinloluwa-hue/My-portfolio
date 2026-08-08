@@ -44,14 +44,11 @@ export default function ServicesAccordion({ onContact }: { onContact: () => void
                   setOpen(isOpen ? null : i);
                 }
               }}
-              className={`relative cursor-pointer overflow-hidden transition-all duration-500 ease-in-out group/row ${
+              className={`relative cursor-pointer overflow-hidden border-b border-b-[#3d3d3d] transition-all duration-500 ease-in-out group/row ${
                 isOpen
                   ? "h-[680px] sm:h-[740px] xl:h-[380px]"
                   : "h-[64px] sm:h-[78px]"
               }`}
-              style={{
-                borderBottom: "1px solid #3d3d3d",
-              }}
             >
               {/* Collapsed label — hover: last word turns purple, + icon slides in */}
               <div
