@@ -6,7 +6,7 @@ function Stars() {
     <div className="flex gap-1">
       {Array.from({ length: 5 }).map((_, i) => (
         <svg key={i} width="16" height="15.4" viewBox="0 0 17.5118 16.873" fill="none">
-          <path d={svgPaths.p2a3b1d00} fill="#38323D" fillOpacity="0.8" />
+          <path d={svgPaths.p2a3b1d00} fill="#38323D" fillOpacity="0.8" className="dark:fill-[#a99bbd]" />
         </svg>
       ))}
     </div>
@@ -31,14 +31,14 @@ export default function TestimonialsMarquee() {
             }}
           >
             <Stars />
-            <p className="font-['Montserrat',sans-serif] font-medium text-[13px] text-[rgba(56,50,61,0.85)] leading-relaxed flex-1">
+            <p className="font-['Montserrat',sans-serif] font-medium text-[13px] text-[rgba(56,50,61,0.85)] dark:text-[rgba(255,255,255,0.85)] leading-relaxed flex-1">
               {t.text}
             </p>
             <div className="flex gap-2.5 items-center pt-2 border-t border-[rgba(255,255,255,0.1)]">
-              <div className="bg-[#d9d9d9] rounded-full w-9 h-9 flex items-center justify-center shrink-0">
-                <p className="font-['Montserrat',sans-serif] font-semibold text-[13px] text-[rgba(56,50,61,0.8)] leading-none">{t.initials}</p>
+              <div className="bg-[#d9d9d9] dark:bg-[#3a3740] rounded-full w-9 h-9 flex items-center justify-center shrink-0">
+                <p className="font-['Montserrat',sans-serif] font-semibold text-[13px] text-[rgba(56,50,61,0.8)] dark:text-[rgba(255,255,255,0.85)] leading-none">{t.initials}</p>
               </div>
-              <p className="font-['Montserrat',sans-serif] font-semibold text-[14px] text-[rgba(56,50,61,0.8)]">{t.from}</p>
+              <p className="font-['Montserrat',sans-serif] font-semibold text-[14px] text-[rgba(56,50,61,0.8)] dark:text-[rgba(255,255,255,0.85)]">{t.from}</p>
             </div>
           </div>
         ))}

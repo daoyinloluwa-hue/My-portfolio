@@ -24,8 +24,8 @@ export default function WorksPage({ onNavigate }: { onNavigate: (p: Page) => voi
         {/* ── Header ── */}
         <section className="max-w-[1280px] mx-auto px-6 sm:px-[80px] pt-[120px] sm:pt-[140px] pb-[50px] sm:pb-[60px]">
           <div className="flex flex-col gap-5">
-            <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[20px] sm:text-[22px]">Selected Works</p>
-            <h1 className="font-['Montserrat',sans-serif] font-semibold text-[32px] sm:text-[44px] lg:text-[52px] text-black leading-[1.1] max-w-[680px]">
+            <p className="font-['Playfair_Display',serif] italic text-[#717171] dark:text-[#8f8c96] text-[20px] sm:text-[22px]">Selected Works</p>
+            <h1 className="font-['Montserrat',sans-serif] font-semibold text-[32px] sm:text-[44px] lg:text-[52px] text-black dark:text-[#f2f0f6] leading-[1.1] max-w-[680px]">
               A selection of interfaces I've designed across mobile and web.
             </h1>
           </div>
@@ -45,7 +45,7 @@ export default function WorksPage({ onNavigate }: { onNavigate: (p: Page) => voi
                   className={`group flex items-center gap-2 font-['Montserrat',sans-serif] font-semibold text-[14px] px-5 py-2.5 rounded-full border transition-all duration-250 cursor-pointer ${
                     activeFilter === f
                       ? "bg-[#201e21] text-white border-[#201e21]"
-                      : "bg-transparent text-black border-[#d0d0d0] hover:border-[#201e21]"
+                      : "bg-transparent text-black dark:text-[#d5d2da] border-[#d0d0d0] dark:border-[#4a4750] hover:border-[#201e21]"
                   }`}
                 >
                   {f}
@@ -53,7 +53,7 @@ export default function WorksPage({ onNavigate }: { onNavigate: (p: Page) => voi
                     className={`text-[11px] font-medium rounded-full px-1.5 py-0.5 leading-none ${
                       activeFilter === f
                         ? "bg-white text-[#201e21]"
-                        : "bg-[#f0f0f0] text-[#777] group-hover:bg-[#201e21] group-hover:text-white transition-colors duration-250"
+                        : "bg-[#f0f0f0] dark:bg-[#33313a] text-[#777] dark:text-[#9b98a3] group-hover:bg-[#201e21] group-hover:text-white transition-colors duration-250"
                     }`}
                   >
                     {count}
@@ -78,7 +78,7 @@ export default function WorksPage({ onNavigate }: { onNavigate: (p: Page) => voi
 
           {filtered.length === 0 && (
             <div className="flex flex-col items-center justify-center py-32 gap-4">
-              <p className="font-['Montserrat',sans-serif] font-semibold text-[20px] text-[#999]">
+              <p className="font-['Montserrat',sans-serif] font-semibold text-[20px] text-[#999] dark:text-[#8a8792]">
                 No projects in this category yet.
               </p>
             </div>

@@ -41,7 +41,7 @@ export default function HomePage({ onNavigate }: { onNavigate: (p: Page) => void
           </div>
 
           {/* Headline */}
-          <h1 className="font-['Montserrat',sans-serif] text-[32px] sm:text-[42px] md:text-[54px] leading-[1.15] text-black">
+          <h1 className="font-['Montserrat',sans-serif] text-[32px] sm:text-[42px] md:text-[54px] leading-[1.15] text-black dark:text-[#f2f0f6]">
             <span className="font-medium">I'm</span>{" "}
             <span className="font-['Playfair_Display',serif] font-bold italic">Oyinloluwa,</span>
             <br />
@@ -49,7 +49,7 @@ export default function HomePage({ onNavigate }: { onNavigate: (p: Page) => void
             <span className="font-['Playfair_Display',serif] font-bold italic">Product Designer</span>
           </h1>
 
-          <p className="font-['Montserrat',sans-serif] font-medium text-[#555] text-[15px] sm:text-[17px] leading-relaxed max-w-[560px]">
+          <p className="font-['Montserrat',sans-serif] font-medium text-[#555] dark:text-[#b9b6c0] text-[15px] sm:text-[17px] leading-relaxed max-w-[560px]">
             I design thoughtful digital products that combine research, strategy, and beautiful interfaces to solve real business and user problems.
           </p>
 
@@ -57,7 +57,7 @@ export default function HomePage({ onNavigate }: { onNavigate: (p: Page) => void
             <PillButton label="Contact Me" dark onClick={() => onNavigate("contact")} />
             <button
               onClick={() => onNavigate("works")}
-              className="font-['Montserrat',sans-serif] font-semibold text-[15px] sm:text-[18px] bg-[#f0eff0] rounded-[40px] px-5 sm:px-6 py-2.5 sm:py-3 text-black hover:bg-[#201e21] hover:text-white transition-all duration-300"
+              className="font-['Montserrat',sans-serif] font-semibold text-[15px] sm:text-[18px] bg-[#f0eff0] dark:bg-[#2a2830] rounded-[40px] px-5 sm:px-6 py-2.5 sm:py-3 text-black dark:text-[#f2f0f6] hover:bg-[#201e21] dark:hover:bg-white hover:text-white dark:hover:text-black transition-all duration-300"
             >
               View Works
             </button>
@@ -132,8 +132,8 @@ export default function HomePage({ onNavigate }: { onNavigate: (p: Page) => void
         <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-[32px] items-start">
           {/* Sticky left sidebar */}
           <div className="lg:sticky lg:top-[100px] w-full lg:max-w-[500px] lg:shrink-0 flex flex-col gap-[24px]">
-            <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[22px] sm:text-[24px]">Selected Works</p>
-            <h2 className="font-['Montserrat',sans-serif] font-semibold text-[30px] sm:text-[40px] text-black leading-normal w-full">
+            <p className="font-['Playfair_Display',serif] italic text-[#717171] dark:text-[#8f8c96] text-[22px] sm:text-[24px]">Selected Works</p>
+            <h2 className="font-['Montserrat',sans-serif] font-semibold text-[30px] sm:text-[40px] text-black dark:text-[#f2f0f6] leading-normal w-full">
               A selection of interfaces I've designed across mobile and web.
             </h2>
             <PillButton label="Contact Me" dark onClick={() => onNavigate("contact")} />
@@ -156,8 +156,8 @@ export default function HomePage({ onNavigate }: { onNavigate: (p: Page) => void
       {/* ── Testimonials ──────────────────────────────────────── */}
       <section className="w-full py-[60px] sm:py-[80px]">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-[80px] mb-10 text-center">
-          <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[20px] sm:text-[22px] mb-3">Testimonials</p>
-          <h2 className="font-['Montserrat',sans-serif] font-semibold text-[28px] sm:text-[40px] text-black mx-auto max-w-[760px] leading-tight">
+          <p className="font-['Playfair_Display',serif] italic text-[#717171] dark:text-[#8f8c96] text-[20px] sm:text-[22px] mb-3">Testimonials</p>
+          <h2 className="font-['Montserrat',sans-serif] font-semibold text-[28px] sm:text-[40px] text-black dark:text-[#f2f0f6] mx-auto max-w-[760px] leading-tight">
             A few words from people I've worked with on different projects.
           </h2>
         </div>

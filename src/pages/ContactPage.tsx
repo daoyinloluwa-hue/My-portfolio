@@ -63,11 +63,11 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
       {/* ── Hero ── */}
       <section className="max-w-[1280px] mx-auto px-6 sm:px-[80px] pt-[120px] sm:pt-[140px] pb-[60px] sm:pb-[80px] w-full">
         <div className="flex flex-col gap-5 mb-[50px] sm:mb-[72px]">
-          <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[20px] sm:text-[22px]">Get in touch</p>
-          <h1 className="font-['Montserrat',sans-serif] font-semibold text-[36px] sm:text-[48px] lg:text-[60px] text-black leading-[1.1] max-w-[760px]">
+          <p className="font-['Playfair_Display',serif] italic text-[#717171] dark:text-[#8f8c96] text-[20px] sm:text-[22px]">Get in touch</p>
+          <h1 className="font-['Montserrat',sans-serif] font-semibold text-[36px] sm:text-[48px] lg:text-[60px] text-black dark:text-[#f2f0f6] leading-[1.1] max-w-[760px]">
             Every great experience begins with a conversation.
           </h1>
-          <p className="font-['Montserrat',sans-serif] font-medium text-[#555] text-[15px] sm:text-[17px] max-w-[520px] leading-relaxed">
+          <p className="font-['Montserrat',sans-serif] font-medium text-[#555] dark:text-[#b9b6c0] text-[15px] sm:text-[17px] max-w-[520px] leading-relaxed">
             Available for freelance work, contracts, and full-time opportunities.
           </p>
         </div>
@@ -82,8 +82,8 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
                 </svg>
               </div>
               <div className="flex flex-col gap-2">
-                <h2 className="font-['Montserrat',sans-serif] font-semibold text-[32px] text-black">Thanks for reaching out!</h2>
-                <p className="font-['Montserrat',sans-serif] font-medium text-[#666] text-[16px] leading-relaxed max-w-[400px]">
+                <h2 className="font-['Montserrat',sans-serif] font-semibold text-[32px] text-black dark:text-[#f2f0f6]">Thanks for reaching out!</h2>
+                <p className="font-['Montserrat',sans-serif] font-medium text-[#666] dark:text-[#a5a2ac] text-[16px] leading-relaxed max-w-[400px]">
                   Your email app should have opened with your message ready to send. If it didn't, email me directly at{" "}
                   <a href="mailto:daoyinloluwa@gmail.com" className="text-[#6751a4] underline">
                     daoyinloluwa@gmail.com
@@ -93,7 +93,7 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
               </div>
               <button
                 onClick={resetForm}
-                className="font-['Montserrat',sans-serif] font-semibold text-[15px] text-[#6751a4] hover:text-black transition-colors flex items-center gap-1.5"
+                className="font-['Montserrat',sans-serif] font-semibold text-[15px] text-[#6751a4] hover:text-black dark:hover:text-white transition-colors flex items-center gap-1.5"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M19 12H5M5 12l7-7M5 12l7 7"/>
@@ -104,13 +104,13 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               {status === "error" && submitError && (
-                <div className="flex items-start gap-3 p-4 rounded-[16px] bg-[#fef2f2] border border-[#fecaca]">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#991b1b] shrink-0 mt-0.5">
+                <div className="flex items-start gap-3 p-4 rounded-[16px] bg-[#fef2f2] dark:bg-[#3a2024] border border-[#fecaca] dark:border-[#5c2f33]">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#991b1b] dark:text-[#ffb3b8] shrink-0 mt-0.5">
                     <circle cx="12" cy="12" r="10" />
                     <line x1="12" y1="8" x2="12" y2="12" />
                     <line x1="12" y1="16" x2="12.01" y2="16" />
                   </svg>
-                  <p className="font-['Montserrat',sans-serif] font-medium text-[14px] text-[#991b1b] leading-relaxed">
+                  <p className="font-['Montserrat',sans-serif] font-medium text-[14px] text-[#991b1b] dark:text-[#ffb3b8] leading-relaxed">
                     {submitError}
                   </p>
                 </div>
@@ -148,7 +148,7 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
                 onChange={(v) => setForm({ ...form, project: v })}
               />
               <div className="flex flex-col gap-2">
-                <label className="font-['Montserrat',sans-serif] font-semibold text-[15px] text-black">
+                <label className="font-['Montserrat',sans-serif] font-semibold text-[15px] text-black dark:text-[#f2f0f6]">
                   Tell me about your project
                 </label>
                 <textarea
@@ -159,7 +159,7 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
                   onFocus={() => setFocused("message")}
                   onBlur={() => setFocused(null)}
                   required
-                  className="font-['Montserrat',sans-serif] font-medium text-[16px] text-black border border-[#e8e8e8] rounded-[18px] px-5 py-4 resize-none outline-none transition-all duration-300 placeholder:text-[#bbb] bg-[#fafafa]"
+                  className="font-['Montserrat',sans-serif] font-medium text-[16px] text-black dark:text-[#f2f0f6] border border-[#e8e8e8] dark:border-[#3a3842] rounded-[18px] px-5 py-4 resize-none outline-none transition-all duration-300 placeholder:text-[#bbb] dark:placeholder:text-[#6f6c76] bg-[#fafafa] dark:bg-[#1b1a20]"
                   style={{
                     borderColor: focused === "message" ? "#6751a4" : undefined,
                     boxShadow: focused === "message" ? "0 0 0 3px rgba(103,81,164,0.08)" : "none",
@@ -184,16 +184,16 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
           {/* ── Sidebar ── */}
           <div className="flex flex-col gap-7">
             <div className="flex flex-col gap-3">
-              <p className="font-['Montserrat',sans-serif] font-semibold text-[18px] text-black">Prefer to reach out directly?</p>
-              <p className="font-['Montserrat',sans-serif] font-medium text-[14px] text-[#666] leading-relaxed">
+              <p className="font-['Montserrat',sans-serif] font-semibold text-[18px] text-black dark:text-[#f2f0f6]">Prefer to reach out directly?</p>
+              <p className="font-['Montserrat',sans-serif] font-medium text-[14px] text-[#666] dark:text-[#a5a2ac] leading-relaxed">
                 I typically respond within 24 hours on business days. Don't hesitate — even if you only have a rough idea.
               </p>
             </div>
 
             {/* Availability */}
-            <div className="flex items-center gap-3 p-4 rounded-[16px] bg-[#f0fff4] border border-[#d4f0de]">
+            <div className="flex items-center gap-3 p-4 rounded-[16px] bg-[#f0fff4] dark:bg-[#1c2b22] border border-[#d4f0de] dark:border-[#2e4a38]">
               <span className="w-2.5 h-2.5 rounded-full bg-[#22c55e] shrink-0 animate-pulse" />
-              <p className="font-['Montserrat',sans-serif] font-semibold text-[13px] text-[#166534]">
+              <p className="font-['Montserrat',sans-serif] font-semibold text-[13px] text-[#166534] dark:text-[#7ee2a8]">
                 Open to freelance & full-time opportunities
               </p>
             </div>
@@ -206,7 +206,7 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-4 p-4 rounded-[18px] border border-[#ebebeb] hover:border-[#6751a4] hover:shadow-[0_4px_20px_rgba(103,81,164,0.1)] transition-all duration-300"
+                  className="group flex items-center gap-4 p-4 rounded-[18px] border border-[#ebebeb] dark:border-[#34313b] hover:border-[#6751a4] hover:shadow-[0_4px_20px_rgba(103,81,164,0.1)] transition-all duration-300"
                 >
                   {social.img ? (
                     <img src={social.img} alt={social.name} loading="lazy" onError={onImgError} className="w-10 h-10 object-cover rounded-[10px]" />
@@ -219,10 +219,10 @@ export default function ContactPage({ onNavigate }: { onNavigate: (p: Page) => v
                     </div>
                   )}
                   <div className="flex flex-col gap-0.5 flex-1">
-                    <p className="font-['Montserrat',sans-serif] font-semibold text-[15px] text-black group-hover:text-[#6751a4] transition-colors duration-200">{social.name}</p>
-                    <p className="font-['Montserrat',sans-serif] font-medium text-[12px] text-[#888]">{social.handle}</p>
+                    <p className="font-['Montserrat',sans-serif] font-semibold text-[15px] text-black dark:text-[#f2f0f6] group-hover:text-[#6751a4] transition-colors duration-200">{social.name}</p>
+                    <p className="font-['Montserrat',sans-serif] font-medium text-[12px] text-[#888] dark:text-[#918e99]">{social.handle}</p>
                   </div>
-                  <ArrowUpRight size={14} className="text-[#ccc] group-hover:text-[#6751a4] transition-colors duration-200 shrink-0" />
+                  <ArrowUpRight size={14} className="text-[#ccc] dark:text-[#7a7782] group-hover:text-[#6751a4] transition-colors duration-200 shrink-0" />
                 </a>
               ))}
             </div>
@@ -259,7 +259,7 @@ function FormField({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="font-['Montserrat',sans-serif] font-semibold text-[15px] text-black">{label}</label>
+      <label className="font-['Montserrat',sans-serif] font-semibold text-[15px] text-black dark:text-[#f2f0f6]">{label}</label>
       <input
         type={type}
         placeholder={placeholder}
@@ -268,7 +268,7 @@ function FormField({
         onFocus={onFocus}
         onBlur={onBlur}
         required={required}
-        className="font-['Montserrat',sans-serif] font-medium text-[16px] text-black border border-[#e8e8e8] rounded-[14px] px-5 py-4 outline-none transition-all duration-300 placeholder:text-[#bbb] bg-[#fafafa]"
+        className="font-['Montserrat',sans-serif] font-medium text-[16px] text-black dark:text-[#f2f0f6] border border-[#e8e8e8] dark:border-[#3a3842] rounded-[14px] px-5 py-4 outline-none transition-all duration-300 placeholder:text-[#bbb] dark:placeholder:text-[#6f6c76] bg-[#fafafa] dark:bg-[#1b1a20]"
         style={{
           borderColor: focused ? "#6751a4" : undefined,
           boxShadow: focused ? "0 0 0 3px rgba(103,81,164,0.08)" : "none",

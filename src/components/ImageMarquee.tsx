@@ -18,7 +18,7 @@ export default function ImageMarquee() {
     <div className="overflow-hidden w-full h-[180px] sm:h-[280px]">
       <div className="flex gap-[16px] sm:gap-[32px] animate-marquee" style={{ width: "max-content" }}>
         {doubled.map((src, i) => (
-          <div key={i} className="relative rounded-[20px] sm:rounded-[32px] shrink-0 w-[180px] h-[180px] sm:w-[280px] sm:h-[280px] bg-[#eee]">
+          <div key={i} className="relative rounded-[20px] sm:rounded-[32px] shrink-0 w-[180px] h-[180px] sm:w-[280px] sm:h-[280px] bg-[#eee] dark:bg-[#26242b]">
             <img
               alt=""
               src={src}

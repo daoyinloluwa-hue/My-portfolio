@@ -138,7 +138,7 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
               </span>
             </div>
 
-            <h1 className="font-['Montserrat',sans-serif] text-[34px] sm:text-[44px] lg:text-[52px] leading-[1.12] text-black">
+            <h1 className="font-['Montserrat',sans-serif] text-[34px] sm:text-[44px] lg:text-[52px] leading-[1.12] text-black dark:text-[#f2f0f6]">
               <span className="font-medium">I'm </span>
               <span className="font-['Playfair_Display',serif] font-bold italic">Oyinloluwa,</span>
               <br />
@@ -149,7 +149,7 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
               <span className="font-medium">digital experiences.</span>
             </h1>
 
-            <p className="font-['Montserrat',sans-serif] font-medium text-[#555] text-[15px] sm:text-[17px] leading-relaxed max-w-[520px]">
+            <p className="font-['Montserrat',sans-serif] font-medium text-[#555] dark:text-[#b9b6c0] text-[15px] sm:text-[17px] leading-relaxed max-w-[520px]">
               I design thoughtful digital products that combine research, strategy, and beautiful interfaces to solve real business and user problems. With over 1 year of experience, I've partnered with startups and brands to bring meaningful ideas to life.
             </p>
 
@@ -159,9 +159,9 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
                 { stat: "5+", label: "Projects Delivered" },
                 { stat: "3", label: "Happy Clients" },
               ].map(({ stat, label }) => (
-                <div key={label} className="border border-[#e8e8e8] rounded-[16px] px-5 py-3.5 flex flex-col gap-0.5 hover:border-[#6751a4] transition-colors duration-300">
-                  <p className="font-['Montserrat',sans-serif] font-bold text-[26px] text-black leading-none">{stat}</p>
-                  <p className="font-['Montserrat',sans-serif] font-medium text-[12px] text-[#777]">{label}</p>
+                <div key={label} className="border border-[#e8e8e8] dark:border-[#3a3842] rounded-[16px] px-5 py-3.5 flex flex-col gap-0.5 hover:border-[#6751a4] transition-colors duration-300">
+                  <p className="font-['Montserrat',sans-serif] font-bold text-[26px] text-black dark:text-[#f2f0f6] leading-none">{stat}</p>
+                  <p className="font-['Montserrat',sans-serif] font-medium text-[12px] text-[#777] dark:text-[#9b98a3]">{label}</p>
                 </div>
               ))}
             </div>
@@ -194,24 +194,24 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
       </section>
 
       {/* ── Skills ── */}
-      <section className="bg-[#f0eeff] py-[60px] sm:py-[80px] px-6 sm:px-[80px]">
+      <section className="bg-[#f0eeff] dark:bg-[#1d1b23] py-[60px] sm:py-[80px] px-6 sm:px-[80px]">
         <div className="max-w-[1280px] mx-auto">
           <div className="flex flex-col gap-3 mb-12">
-            <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[20px] sm:text-[22px]">What I do</p>
-            <h2 className="font-['Montserrat',sans-serif] font-semibold text-[30px] sm:text-[40px] text-black">Skills & Expertise</h2>
+            <p className="font-['Playfair_Display',serif] italic text-[#717171] dark:text-[#8f8c96] text-[20px] sm:text-[22px]">What I do</p>
+            <h2 className="font-['Montserrat',sans-serif] font-semibold text-[30px] sm:text-[40px] text-black dark:text-[#f2f0f6]">Skills & Expertise</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {skills.map((skill) => (
               <div
                 key={skill.label}
-                className="group flex flex-col gap-4 p-6 bg-white rounded-[20px] border border-[#ebebeb] hover:border-[#6751a4] hover:shadow-[0_4px_24px_rgba(103,81,164,0.08)] transition-all duration-300 cursor-default"
+                className="group flex flex-col gap-4 p-6 bg-white dark:bg-[#201e24] rounded-[20px] border border-[#ebebeb] dark:border-[#34313b] hover:border-[#6751a4] hover:shadow-[0_4px_24px_rgba(103,81,164,0.08)] transition-all duration-300 cursor-default"
               >
-                <div className="w-10 h-10 rounded-[10px] bg-[#f4f1ff] flex items-center justify-center text-[#6751a4] group-hover:bg-[#6751a4] group-hover:text-white transition-colors duration-300">
+                <div className="w-10 h-10 rounded-[10px] bg-[#f4f1ff] dark:bg-[#2a2633] flex items-center justify-center text-[#6751a4] group-hover:bg-[#6751a4] group-hover:text-white transition-colors duration-300">
                   {skill.icon}
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <p className="font-['Montserrat',sans-serif] font-semibold text-[17px] text-black">{skill.label}</p>
-                  <p className="font-['Montserrat',sans-serif] font-medium text-[13px] text-[#666] leading-relaxed">{skill.desc}</p>
+                  <p className="font-['Montserrat',sans-serif] font-semibold text-[17px] text-black dark:text-[#f2f0f6]">{skill.label}</p>
+                  <p className="font-['Montserrat',sans-serif] font-medium text-[13px] text-[#666] dark:text-[#a5a2ac] leading-relaxed">{skill.desc}</p>
                 </div>
               </div>
             ))}
@@ -224,8 +224,8 @@ export default function AboutPage({ onNavigate }: { onNavigate: (p: Page) => voi
         <div className="max-w-[1280px] mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div className="flex flex-col gap-3">
-              <p className="font-['Playfair_Display',serif] italic text-[#717171] text-[20px] sm:text-[22px]">My Stack</p>
-              <h2 className="font-['Montserrat',sans-serif] font-semibold text-[30px] sm:text-[40px] text-black">Tools I work with</h2>
+              <p className="font-['Playfair_Display',serif] italic text-[#717171] dark:text-[#8f8c96] text-[20px] sm:text-[22px]">My Stack</p>
+              <h2 className="font-['Montserrat',sans-serif] font-semibold text-[30px] sm:text-[40px] text-black dark:text-[#f2f0f6]">Tools I work with</h2>
             </div>
             <a
               href="https://docs.google.com/document/d/1Q3-IaiUvbQVL6w2QzXNDdYUMG-nNdHQ0B5zuRU4WFhI/edit?usp=drive_link"
