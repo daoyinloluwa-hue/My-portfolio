@@ -106,7 +106,7 @@ export default function HomePage({ onNavigate }: { onNavigate: (p: Page) => void
                 { stat: "1+", label: "Year of Experience" },
                 { stat: "5+", label: "Projects Delivered" },
               ].map(({ stat, label }) => (
-                <div key={label} className="bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.12)] rounded-[16px] px-5 py-4 flex flex-col gap-1">
+                <div key={label} className="flex-1 min-w-0 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.12)] rounded-[16px] px-5 py-4 flex flex-col gap-1">
                   <p className="font-['Montserrat',sans-serif] font-bold text-[28px] text-white leading-none">{stat}</p>
                   <p className="font-['Montserrat',sans-serif] font-medium text-[13px] text-[rgba(255,255,255,0.6)]">{label}</p>
                 </div>
@@ -115,7 +115,7 @@ export default function HomePage({ onNavigate }: { onNavigate: (p: Page) => void
 
             <button
               onClick={() => onNavigate("about")}
-              className="group self-start flex items-center gap-2.5 border border-[rgba(255,255,255,0.25)] rounded-[40px] px-5 py-2.5 text-white hover:bg-white hover:text-black transition-all duration-300"
+              className="group w-full justify-center flex items-center gap-2.5 border border-[rgba(255,255,255,0.25)] rounded-[40px] px-5 py-2.5 text-white hover:bg-white hover:text-black transition-all duration-300"
             >
               <span className="font-['Montserrat',sans-serif] font-semibold text-[15px]">Learn more about me</span>
               <ArrowUpRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-300" />

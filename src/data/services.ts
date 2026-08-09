@@ -41,13 +41,14 @@ export const services: Service[] = [
     image: imgLandingPage,
   },
   {
-    title: "Antigravity Development",
-    titleParts: ["Antigravity ", "Development"],
+    title: "Product Engineering",
+    titleParts: ["Product ", "Engineering"],
     description:
-      "Fast, responsive, and immersive websites that combine exceptional user experiences with smooth interactions and high-performance execution.",
+      "End-to-end product engineering that turns ideas into reliable, scalable software — clean frontend builds, thoughtful architecture, and launch-ready execution.",
     bullets: [
-      "Custom Antigravity Development",
-      "Responsive Web Experiences",
+      "End-to-End Product Development",
+      "Frontend Engineering",
+      "Rapid Prototyping & MVPs",
       "Advanced Interactions & Animations",
       "Performance Optimization",
     ],
