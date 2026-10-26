@@ -16,7 +16,7 @@ import cammyGallery2 from "@/imports/Desktop1/cammy-gallery-2.jpeg";
 import iexploreCover from "@/imports/Desktop1/iexplore-cover.png";
 import iexploreCard from "@/imports/Desktop1/iexplore-card.png";
 import imgLandingPage from "@/imports/landing-page.png";
-import imgIxpl from "@/imports/ixpl-limited.png";
+import imgIxpl from "@/imports/Desktop1/ixpl-limited.png";
 
 export interface Project {
   id: string;
