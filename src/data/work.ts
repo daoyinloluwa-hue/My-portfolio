@@ -150,7 +150,7 @@ export const projects: Project[] = [
     image: imgIxpl,
     year: "2026",
     role: "Brand & Product",
-    duration: "Ongoing",
+    duration: "3 weeks",
     client: "IXPL Limited",
     tags: ["Technology", "Digital Solutions", "Product Development", "Nigeria"],
     challenge:
