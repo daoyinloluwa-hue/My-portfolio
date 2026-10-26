@@ -16,6 +16,7 @@ import cammyGallery2 from "@/imports/Desktop1/cammy-gallery-2.jpeg";
 import iexploreCover from "@/imports/Desktop1/iexplore-cover.png";
 import iexploreCard from "@/imports/Desktop1/iexplore-card.png";
 import imgLandingPage from "@/imports/landing-page.png";
+import imgIxpl from "@/imports/ixpl-limited.png";
 
 export interface Project {
   id: string;
@@ -80,6 +81,90 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "afrireuse",
+    title: "AfriReuse",
+    subtitle: "Making Circular Economy & Sustainability Social",
+    description:
+      "A community reuse app where people give and receive items for free — making sustainability social.",
+    fullDescription:
+      "AfriReuse is a eco-conscious social platform connecting local community members to gift pre-loved household goods, books, electronics, and clothing. By combining hyper-local geo-discovery with social trust verification, the app makes giving away items effortless and rewards sustainable habits.",
+    category: "Product Design",
+    type: "Mobile App",
+    image: imgFrame427318624,
+    secondImage: imgFrame427318621,
+    galleryImages: [grabbyGallery3, grabbyGallery4],
+    galleryVideos: [grabbyDemo],
+    year: "2026",
+    role: "Lead UI/UX Designer",
+    duration: "7 weeks",
+    client: "AfriReuse Foundation",
+    tags: ["Product Design", "Mobile App", "Sustainability", "Community"],
+    challenge:
+      "Traditional secondhand platforms focus on transactional selling, creating friction for users who simply want to donate items quickly and safely.",
+    solution:
+      "Designed a zero-friction listing experience allowing users to snap a photo and publish free listings in under 30 seconds with automated pickup scheduling.",
+    highlights: [
+      "3-step photo-first listing creation workflow",
+      "Hyper-local radius matching and secure chat messaging",
+      "Community impact metrics tracking items saved from landfills",
+      "Verified user trust badges and neighborhood rating system",
+    ],
+  },
+  {
+    id: "maxxconnection",
+    title: "MaxxConnection",
+    subtitle: "Website Design for an Experiential Marketing Agency",
+    description:
+      "A bold, immersive website designed for an experiential marketing agency to showcase campaigns and win new clients.",
+    fullDescription:
+      "MaxxConnection is an experiential marketing agency that turns brands into moments people remember. Their website was redesigned to reflect the energy of the experiences they produce — pairing bold editorial typography, full-bleed campaign imagery, and smooth scroll-driven motion with a clear, conversion-focused layout. The result is a site that feels as alive as the activations the agency creates.",
+    category: "Web Design",
+    type: "Website",
+    image: imgLandingPage,
+    year: "2026",
+    role: "UI/UX Designer",
+    duration: "6 weeks",
+    client: "MaxxConnection",
+    tags: ["Web Design", "Website", "Marketing", "Branding"],
+    challenge:
+      "The agency's outdated website failed to capture the high-energy, immersive nature of its work, making it hard to communicate value and generate qualified leads.",
+    solution:
+      "Designed a cinematic, scroll-driven website with bold campaign showcases, clear service pillars, and prominent conversion paths to turn visitors into booked projects.",
+    highlights: [
+      "Full-bleed campaign galleries with hover-driven previews",
+      "Cinematic scroll animations that mirror live event energy",
+      "Clear service architecture and streamlined inquiry flow",
+      "Fully responsive layouts tuned for agency pitching on mobile",
+    ],
+  },
+  {
+    id: "ixpl",
+    title: "IXPL Limited",
+    subtitle: "Purposeful Technology Solutions Company",
+    description:
+      "A technology solutions company building secure, locally relevant digital products that solve real-world problems.",
+    fullDescription:
+      "IXPL Limited is a Nigerian technology solutions company focused on developing digital products, platforms, and custom applications that solve real-world problems. The company takes a purpose-driven approach to technology - building practical solutions that improve lives and bridge the gap between challenges and effective digital tools. IXPL is behind iExplore, a nightlife discovery and safety platform.",
+    category: "Technology",
+    type: "Website",
+    image: imgIxpl,
+    year: "2026",
+    role: "Brand & Product",
+    duration: "Ongoing",
+    client: "IXPL Limited",
+    tags: ["Technology", "Digital Solutions", "Product Development", "Nigeria"],
+    challenge:
+      "Bridging real-world challenges with practical, secure, and locally relevant digital solutions in Nigeria's tech ecosystem.",
+    solution:
+      "Building purposeful technology products and custom applications with a focus on solving everyday problems, exemplified by platforms like iExplore for nightlife discovery and safety.",
+    highlights: [
+      "Purpose-driven approach to technology development",
+      "Custom digital products and platforms for businesses and consumers",
+      "Flagship product: iExplore (nightlife discovery & personal safety)",
+      "Focus on secure, locally relevant solutions for Nigerian market",
+    ],
+  },
+  {
     id: "grabby",
     title: "Grabby",
     subtitle: "All-in-One Business Management for Emerging SMEs",
@@ -136,63 +221,6 @@ export const projects: Project[] = [
       "Visual funnel tracking from order placement to final delivery",
       "Interactive inventory forecasting widgets",
       "Keyboard shortcuts for lightning-fast power user workflows",
-    ],
-  },
-  {
-    id: "afrireuse",
-    title: "AfriReuse",
-    subtitle: "Making Circular Economy & Sustainability Social",
-    description:
-      "A community reuse app where people give and receive items for free — making sustainability social.",
-    fullDescription:
-      "AfriReuse is a eco-conscious social platform connecting local community members to gift pre-loved household goods, books, electronics, and clothing. By combining hyper-local geo-discovery with social trust verification, the app makes giving away items effortless and rewards sustainable habits.",
-    category: "Product Design",
-    type: "Mobile App",
-    image: imgFrame427318624,
-    secondImage: imgFrame427318621,
-    galleryImages: [grabbyGallery3, grabbyGallery4],
-    galleryVideos: [grabbyDemo],
-    year: "2026",
-    role: "Lead UI/UX Designer",
-    duration: "7 weeks",
-    client: "AfriReuse Foundation",
-    tags: ["Product Design", "Mobile App", "Sustainability", "Community"],
-    challenge:
-      "Traditional secondhand platforms focus on transactional selling, creating friction for users who simply want to donate items quickly and safely.",
-    solution:
-      "Designed a zero-friction listing experience allowing users to snap a photo and publish free listings in under 30 seconds with automated pickup scheduling.",
-    highlights: [
-      "3-step photo-first listing creation workflow",
-      "Hyper-local radius matching and secure chat messaging",
-      "Community impact metrics tracking items saved from landfills",
-      "Verified user trust badges and neighborhood rating system",
-    ],
-  },
-  {
-    id: "maxxconnection",
-    title: "MaxxConnection",
-    subtitle: "Website Design for an Experiential Marketing Agency",
-    description:
-      "A bold, immersive website designed for an experiential marketing agency to showcase campaigns and win new clients.",
-    fullDescription:
-      "MaxxConnection is an experiential marketing agency that turns brands into moments people remember. Their website was redesigned to reflect the energy of the experiences they produce — pairing bold editorial typography, full-bleed campaign imagery, and smooth scroll-driven motion with a clear, conversion-focused layout. The result is a site that feels as alive as the activations the agency creates.",
-    category: "Web Design",
-    type: "Website",
-    image: imgLandingPage,
-    year: "2026",
-    role: "UI/UX Designer",
-    duration: "6 weeks",
-    client: "MaxxConnection",
-    tags: ["Web Design", "Website", "Marketing", "Branding"],
-    challenge:
-      "The agency's outdated website failed to capture the high-energy, immersive nature of its work, making it hard to communicate value and generate qualified leads.",
-    solution:
-      "Designed a cinematic, scroll-driven website with bold campaign showcases, clear service pillars, and prominent conversion paths to turn visitors into booked projects.",
-    highlights: [
-      "Full-bleed campaign galleries with hover-driven previews",
-      "Cinematic scroll animations that mirror live event energy",
-      "Clear service architecture and streamlined inquiry flow",
-      "Fully responsive layouts tuned for agency pitching on mobile",
     ],
   },
 ];
