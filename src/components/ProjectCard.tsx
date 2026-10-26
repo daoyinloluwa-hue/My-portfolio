@@ -8,6 +8,7 @@ interface ProjectCardProps {
 }
 
 function ProjectImage({ project }: { project: Project }) {
+  const isFill = project.id === "ixpl" || project.id === "maxxconnection";
   return (
     <div className="relative overflow-hidden w-full h-full">
       {project.secondImage && (
@@ -19,14 +20,14 @@ function ProjectImage({ project }: { project: Project }) {
         loading="lazy"
         decoding="async"
         onError={onImgError}
-        className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
+        className={`absolute inset-0 w-full h-full object-cover object-center group-hover:scale-[1.06] transition-transform duration-700 ease-out`}
       />
       <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
         <span className="font-['Montserrat',sans-serif] font-semibold text-[12px] text-black">
           {project.type}
         </span>
       </div>
-      <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
         <span className="font-['Montserrat',sans-serif] font-semibold text-[12px] bg-[#201e21] text-white px-3.5 py-1.5 rounded-full shadow-md">
           View Case Study ↗
         </span>
